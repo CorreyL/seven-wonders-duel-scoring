@@ -15,7 +15,13 @@ import Coins from './components/Score/Coins/coins';
 import Civilian from './components/Score/Civilian';
 
 const ScoringFactory = (): Scoring => ({
-  civilian: [],
+  civilian: {
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+  },
   coins: 0,
 });
 

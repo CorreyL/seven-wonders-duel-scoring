@@ -3,8 +3,12 @@ export enum Player {
   Two = 2,
 }
 
+interface CivilianScores {
+  [key: number]: number;
+}
+
 export interface Scoring {
-  civilian: Array<number>;
+  civilian: CivilianScores;
   coins: number;
 }
 

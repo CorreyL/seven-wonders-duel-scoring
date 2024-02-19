@@ -12,31 +12,31 @@ function Civilian() {
   const { civilian: civilianScore } = playerScore;
 
   const addCivilianCard = (score: number): void => {
-    civilianScore.push(score);
+    civilianScore[score] += 1;
     setPlayerScore({
       ...playerScore,
       civilian: civilianScore,
     })
   };
 
-  const civilianCardScores = [3, 4, 5, 6, 7];
-
   return (
     <div className="civilian">
       <p>
         Score from Civilian: {
-          civilianScore.reduce(
-            (partialSum: number, num: number) => (partialSum + num),
+          Object.keys(civilianScore).reduce(
+            (partialSum: number, key: string) => (
+              (civilianScore[Number(key)] * Number(key)) + partialSum
+            ),
             0,
           )
         }
       </p>
       <div className="add-civilian-points">
         {
-          civilianCardScores.map((score, idx) => (
+          Object.keys(civilianScore).map((score, idx) => (
             <button
               key={`civilian-btn-${idx}`}
-              onClick={() => addCivilianCard(score)}
+              onClick={() => addCivilianCard(Number(score))}
             >
               {score}
             </button>
