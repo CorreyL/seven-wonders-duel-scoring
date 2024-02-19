@@ -12,15 +12,24 @@ function Coins() {
     setPlayerScore,
   } = useContext(PlayerScoringContext);
 
+  const changeScore = (score: number, increment: boolean = false) => {
+    setPlayerScore({
+      ...playerScore,
+      coins: (increment)
+        ? playerScore.coins + score
+        : score
+    });
+  };
+
   return (
     <>
-      <span>
+      <span onClick={() => changeScore(1, true)}>
         <img src={oneCoin} className="coin one-coin" alt="One Coin" />
       </span>
-      <span>
+      <span onClick={() => changeScore(3, true)}>
         <img src={threeCoin} className="coin" alt="Three Coin" />
       </span>
-      <span>
+      <span onClick={() => changeScore(6, true)}>
         <img src={sixCoin} className="coin six-coin" alt="Six Coin" />
       </span>
     </>
