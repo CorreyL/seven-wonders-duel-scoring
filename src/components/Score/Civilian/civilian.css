@@ -1,0 +1,5 @@
+.civilian > div.add-civilian-points {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { PlayerScoringContext } from '../../../context/Scoring';
 
+import './civilian.css';
+
 function Civilian() {
   const {
     playerScore,
@@ -20,7 +22,7 @@ function Civilian() {
   const civilianCardScores = [3, 4, 5, 6, 7];
 
   return (
-    <div>
+    <div className="civilian">
       <p>
         Score from Civilian: {
           civilianScore.reduce(
@@ -29,16 +31,18 @@ function Civilian() {
           )
         }
       </p>
-      {
-        civilianCardScores.map((score, idx) => (
-          <button
-            key={`civilian-btn-${idx}`}
-            onClick={() => addCivilianCard(score)}
-          >
-            {score}
-          </button>
-        ))
-      }
+      <div className="add-civilian-points">
+        {
+          civilianCardScores.map((score, idx) => (
+            <button
+              key={`civilian-btn-${idx}`}
+              onClick={() => addCivilianCard(score)}
+            >
+              {score}
+            </button>
+          ))
+        }
+      </div>
     </div>
   );
 }
