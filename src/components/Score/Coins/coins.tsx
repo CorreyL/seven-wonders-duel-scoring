@@ -22,7 +22,7 @@ function Coins() {
   };
 
   return (
-    <>
+    <div>
       <span onClick={() => changeScore(1, true)}>
         <img src={oneCoin} className="coin one-coin" alt="One Coin" />
       </span>
@@ -32,7 +32,7 @@ function Coins() {
       <span onClick={() => changeScore(6, true)}>
         <img src={sixCoin} className="coin six-coin" alt="Six Coin" />
       </span>
-    </>
+    </div>
   );
 }
 
