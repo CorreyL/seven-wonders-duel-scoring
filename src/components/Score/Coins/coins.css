@@ -1,0 +1,18 @@
+.coin {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.coin:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.coin.one-coin {
+  height: 6.8em;
+}
+
+.coin.six-coin {
+  height: 5.5em;
+}
