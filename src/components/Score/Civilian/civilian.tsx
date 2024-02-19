@@ -7,9 +7,15 @@ function Civilian() {
     setPlayerScore,
   } = useContext(PlayerScoringContext);
 
+  const civilianCardScores = [3, 4, 5, 6, 7];
+
   return (
     <div>
-      Hello World
+      {
+        civilianCardScores.map((score, idx) => (
+          <button key={`civilian-btn-${idx}`}>{score}</button>
+        ))
+      }
     </div>
   );
 }
