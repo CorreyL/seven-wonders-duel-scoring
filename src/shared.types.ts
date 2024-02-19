@@ -4,6 +4,7 @@ export enum Player {
 }
 
 export interface Scoring {
+  civilian: Array<number>;
   coins: number;
 }
 
