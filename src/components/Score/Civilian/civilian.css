@@ -1,3 +1,15 @@
+.civilian-btn {
+  background-color: #007EC3;
+  background-image: linear-gradient(to bottom right, #007EC3 60%, #03486d);
+}
+
+.civilian > div.total-civilian-points {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+
 .civilian > div.add-civilian-points {
   display: flex;
   flex-direction: row;
@@ -6,6 +18,4 @@
 
 .civilian > div.add-civilian-points > button {
   padding: 1.0em 1.0em;
-  background-color: #007EC3;
-  background-image: linear-gradient(to bottom right, #007EC3 60%, #03486d);
 }
