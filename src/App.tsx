@@ -12,6 +12,7 @@ import {
 } from './context/Scoring';
 
 import Coins from './components/Score/Coins/coins';
+import Civilian from './components/Score/Civilian';
 
 const ScoringFactory = (): Scoring => ({
   coins: 0,
@@ -39,6 +40,7 @@ function App() {
       <p>Current Player: {currentPlayer}</p>
       <button onClick={changePlayer}>Change Player</button>
       <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
+        <Civilian/>
         <Coins/>
       </PlayerScoringContext.Provider>
     </>
