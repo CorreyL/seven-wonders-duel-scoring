@@ -4,7 +4,12 @@ import './App.css'
 import {
   Player,
   Scoring,
+  ScoringContext,
 } from './shared.types';
+
+import {
+  PlayerScoringContext,
+} from './context/Scoring';
 
 import Coins from './components/Score/Coins/coins';
 
@@ -21,11 +26,21 @@ function App() {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
   };
 
+  const getCurrentPlayerContext = (): ScoringContext => {
+    return (
+      (currentPlayer === Player.One)
+        ? { playerScore: playerOneScore, setPlayerScore: setPlayerOneScore, }
+        : { playerScore: playerTwoScore, setPlayerScore: setPlayerTwoScore, }
+    )
+  };
+
   return (
     <>
       <p>Current Player: {currentPlayer}</p>
       <button onClick={changePlayer}>Change Player</button>
-      <Coins/>
+      <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
+        <Coins/>
+      </PlayerScoringContext.Provider>
     </>
   );
 }
