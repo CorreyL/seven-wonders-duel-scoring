@@ -6,4 +6,5 @@
 
 .civilian > div.add-civilian-points > button {
   background-color: #007EC3;
+  background-image: linear-gradient(to bottom right, #007EC3 60%, #03486d);
 }
