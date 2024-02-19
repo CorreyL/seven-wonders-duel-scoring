@@ -21,6 +21,14 @@ function Civilian() {
 
   return (
     <div>
+      <p>
+        Score from Civilian: {
+          civilianScore.reduce(
+            (partialSum: number, num: number) => (partialSum + num),
+            0,
+          )
+        }
+      </p>
       {
         civilianCardScores.map((score, idx) => (
           <button
