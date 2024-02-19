@@ -23,6 +23,12 @@ function Coins() {
 
   return (
     <div>
+      <div>
+        <input
+          onChange={(e) => changeScore(Number(e.target.value))}
+          value={playerScore.coins}
+        />
+      </div>
       <span onClick={() => changeScore(1, true)}>
         <img src={oneCoin} className="coin one-coin" alt="One Coin" />
       </span>
