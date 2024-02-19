@@ -7,13 +7,28 @@ function Civilian() {
     setPlayerScore,
   } = useContext(PlayerScoringContext);
 
+  const { civilian: civilianScore } = playerScore;
+
+  const addCivilianCard = (score: number): void => {
+    civilianScore.push(score);
+    setPlayerScore({
+      ...playerScore,
+      civilian: civilianScore,
+    })
+  };
+
   const civilianCardScores = [3, 4, 5, 6, 7];
 
   return (
     <div>
       {
         civilianCardScores.map((score, idx) => (
-          <button key={`civilian-btn-${idx}`}>{score}</button>
+          <button
+            key={`civilian-btn-${idx}`}
+            onClick={() => addCivilianCard(score)}
+          >
+            {score}
+          </button>
         ))
       }
     </div>
