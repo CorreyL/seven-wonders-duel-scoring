@@ -6,3 +6,8 @@ export enum Player {
 export interface Scoring {
   coins: number;
 }
+
+export interface ScoringContext {
+  playerScore: Scoring;
+  setPlayerScore: React.Dispatch<React.SetStateAction<Scoring>>;
+}
