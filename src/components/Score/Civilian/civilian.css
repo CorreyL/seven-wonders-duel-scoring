@@ -3,3 +3,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.civilian > div.add-civilian-points > button {
+  background-color: #007EC3;
+}
