@@ -39,7 +39,7 @@ function Coins() {
       <img
         onClick={() => changeScore(3, true)}
         src={threeCoin}
-        className="coin"
+        className="coin three-coin"
         alt="Three Coin"
       />
       <img

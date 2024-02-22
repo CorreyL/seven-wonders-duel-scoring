@@ -1,6 +1,5 @@
 .coin {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -10,9 +9,13 @@
 }
 
 .coin.one-coin {
-  height: 6.8em;
+  height: 4.5em;
+}
+
+.coin.three-coin {
+  height: 5.2em;
 }
 
 .coin.six-coin {
-  height: 5.5em;
+  height: 5.3em;
 }
