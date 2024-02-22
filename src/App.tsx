@@ -23,6 +23,7 @@ const ScoringFactory = (): Scoring => ({
     7: 0,
   },
   coins: 0,
+  military: 0,
 });
 
 function App() {
