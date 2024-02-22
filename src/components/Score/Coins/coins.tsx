@@ -30,15 +30,24 @@ function Coins() {
           value={playerScore.coins}
         />
       </div>
-      <span onClick={() => changeScore(1, true)}>
-        <img src={oneCoin} className="coin one-coin" alt="One Coin" />
-      </span>
-      <span onClick={() => changeScore(3, true)}>
-        <img src={threeCoin} className="coin" alt="Three Coin" />
-      </span>
-      <span onClick={() => changeScore(6, true)}>
-        <img src={sixCoin} className="coin six-coin" alt="Six Coin" />
-      </span>
+      <img
+        onClick={() => changeScore(1, true)}
+        src={oneCoin}
+        className="coin one-coin"
+        alt="One Coin"
+      />
+      <img
+        onClick={() => changeScore(3, true)}
+        src={threeCoin}
+        className="coin"
+        alt="Three Coin"
+      />
+      <img
+        onClick={() => changeScore(6, true)}
+        src={sixCoin}
+        className="coin six-coin"
+        alt="Six Coin"
+      />
     </div>
   );
 }
