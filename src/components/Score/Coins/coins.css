@@ -8,6 +8,10 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+.coin-buttons {
+  padding: 1.0em 0;
+}
+
 .coin.one-coin {
   height: 4.5em;
 }
