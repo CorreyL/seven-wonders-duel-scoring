@@ -1,0 +1,12 @@
+.military-score-options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.military-btn {
+  background-color: #B71A1F;
+  background-image: linear-gradient(to bottom right, #B71A1F 60%, #4b0506);
+}
