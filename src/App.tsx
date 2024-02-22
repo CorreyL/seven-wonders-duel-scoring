@@ -13,6 +13,7 @@ import {
 
 import Coins from './components/Score/Coins/coins';
 import Civilian from './components/Score/Civilian';
+import Military from './components/Score/Military';
 
 const ScoringFactory = (): Scoring => ({
   civilian: {
@@ -50,6 +51,7 @@ function App() {
       <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
         <Civilian/>
         <Coins/>
+        <Military/>
       </PlayerScoringContext.Provider>
     </>
   );
