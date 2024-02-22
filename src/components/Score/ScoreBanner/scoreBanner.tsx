@@ -1,19 +1,24 @@
 import './scoreBanner.css';
-// import Collapse from '../../../assets/collapse-icon.svg';
+import Collapse from '../../../assets/collapse-icon.svg';
 import Expand from '../../../assets/expand-icon.svg';
 
 interface ScoreBannerProps {
   title: string;
   score: number;
+  expanded: boolean;
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function ScoreBanner({ title, score }: ScoreBannerProps) {
+function ScoreBanner({ title, score, expanded, setExpanded }: ScoreBannerProps) {
   return (
-    <div className="score-banner">
+    <div
+      onClick={() => (setExpanded(!expanded))}
+      className="score-banner"
+    >
       <span className="left-portion">
         <img
           className="toggle-icon"
-          src={Expand}
+          src={(expanded) ? Expand : Collapse}
         />
         {title}
       </span>
