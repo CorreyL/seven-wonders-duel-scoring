@@ -1,13 +1,17 @@
+import './scoreBanner.css';
+
 interface ScoreBannerProps {
   title: string;
   score: number;
 }
 
-export default function ScoreBanner({ title, score }: ScoreBannerProps) {
+function ScoreBanner({ title, score }: ScoreBannerProps) {
   return (
-    <div>
+    <div className="score-banner">
       <span>{title}</span>
       <span>{score}</span>
     </div>
   );
 }
+
+export default ScoreBanner;
