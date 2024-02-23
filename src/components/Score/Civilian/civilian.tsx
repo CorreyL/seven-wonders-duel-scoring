@@ -29,16 +29,6 @@ function Civilian() {
 
   return (
     <div className="civilian">
-      <p>
-        Score from Civilian: {
-          Object.keys(civilianScore).reduce(
-            (partialSum: number, key: string) => (
-              (civilianScore[Number(key)] * Number(key)) + partialSum
-            ),
-            0,
-          )
-        }
-      </p>
       <div className="total-civilian-points">
         {
           Object.keys(civilianScore).map((score) => (

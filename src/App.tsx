@@ -14,6 +14,7 @@ import {
 import Coins from './components/Score/Coins/coins';
 import Civilian from './components/Score/Civilian';
 import Military from './components/Score/Military';
+import Score from './components/Score/Score';
 
 const ScoringFactory = (): Scoring => ({
   civilian: {
@@ -36,6 +37,14 @@ function App() {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
   };
 
+  const getCurrentPlayerScore = (): Scoring => {
+    return (
+      (currentPlayer === Player.One)
+        ? playerOneScore
+        : playerTwoScore
+    );
+  };
+
   const getCurrentPlayerContext = (): ScoringContext => {
     return (
       (currentPlayer === Player.One)
@@ -44,12 +53,27 @@ function App() {
     )
   };
 
+  const calculateCivilianScore = (): number => {
+    const currentPlayerScore = getCurrentPlayerScore();
+    const { civilian } = currentPlayerScore;
+    return Object.keys(civilian).reduce(
+      (partialSum: number, key: string) => (
+        (civilian[Number(key)] * Number(key)) + partialSum
+      ),
+      0,
+    );
+  }
+
   return (
     <>
       <p>Current Player: {currentPlayer}</p>
       <button onClick={changePlayer}>Change Player</button>
       <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
-        <Civilian/>
+        <Score
+          title="Civilian"
+          score={calculateCivilianScore()}
+          ScoreComponent={Civilian}
+        />
         <Coins/>
         <Military/>
       </PlayerScoringContext.Provider>
