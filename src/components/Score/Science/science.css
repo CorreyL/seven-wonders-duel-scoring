@@ -1,0 +1,33 @@
+.science > * {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+.science-btn {
+  background-color: #009C59;
+  background-image: linear-gradient(to bottom right, #009C59 60%, #004527);
+}
+
+.science > div.total-science-points {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+  min-height: 4.0em;
+}
+
+.science > div.total-science-points > button {
+  height: 3.0em;
+}
+
+.science > div.add-science-points {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.science > div.add-science-points > button {
+  padding: 1.0em 1.0em;
+}
