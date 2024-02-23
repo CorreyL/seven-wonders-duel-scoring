@@ -4,7 +4,7 @@
   transition: filter 300ms;
 }
 
-.coin:hover {
+.coin:active {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
