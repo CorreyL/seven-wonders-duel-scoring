@@ -10,8 +10,6 @@ function Military() {
     setPlayerScore,
   } = useContext(PlayerScoringContext);
 
-  const { military } = playerScore
-
   const possibleScores = [0, 2, 5, 10] as Array<MilitaryScores>;
 
   const setMilitaryScore = (score: MilitaryScores) => {
@@ -23,7 +21,6 @@ function Military() {
 
   return (
     <div className="military">
-      Score From Military: {military}
       <div className="military-score-options">
         {
           possibleScores.map(
