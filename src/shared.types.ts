@@ -5,19 +5,19 @@ export enum Player {
 
 export type MilitaryScores = 0 | 2 | 5 | 10;
 
-interface CivilianScores {
-  [key: number]: number;
-}
-
-interface ScienceScores {
+/**
+ * Interface for Scoring types that only have a limited number of score values
+ * that can be added to the total
+ */
+export interface DistinctScores {
   [key: number]: number;
 }
 
 export interface Scoring {
-  civilian: CivilianScores;
+  civilian: DistinctScores;
   coins: number;
   military: MilitaryScores;
-  science: ScienceScores;
+  science: DistinctScores;
 }
 
 export interface ScoringContext {

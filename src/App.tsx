@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import {
+  DistinctScores,
   Player,
   Scoring,
   ScoringContext,
@@ -58,12 +59,10 @@ function App() {
     )
   };
 
-  const calculateCivilianScore = (): number => {
-    const currentPlayerScore = getCurrentPlayerScore();
-    const { civilian } = currentPlayerScore;
-    return Object.keys(civilian).reduce(
+  const calculateDistinctScoreTotal = (distinctScores: DistinctScores): number => {
+    return Object.keys(distinctScores).reduce(
       (partialSum: number, key: string) => (
-        (civilian[Number(key)] * Number(key)) + partialSum
+        (distinctScores[Number(key)] * Number(key)) + partialSum
       ),
       0,
     );
@@ -76,7 +75,7 @@ function App() {
       <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
         <Score
           title="Civilian"
-          score={calculateCivilianScore()}
+          score={calculateDistinctScoreTotal(getCurrentPlayerScore().civilian)}
           ScoreComponent={Civilian}
         />
         <Score
