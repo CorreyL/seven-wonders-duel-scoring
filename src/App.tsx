@@ -26,6 +26,11 @@ const ScoringFactory = (): Scoring => ({
   },
   coins: 0,
   military: 0,
+  science: {
+    1: 0,
+    2: 0,
+    3: 0,
+  },
 });
 
 function App() {

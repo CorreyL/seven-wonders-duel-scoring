@@ -9,10 +9,15 @@ interface CivilianScores {
   [key: number]: number;
 }
 
+interface ScienceScores {
+  [key: number]: number;
+}
+
 export interface Scoring {
   civilian: CivilianScores;
   coins: number;
   military: MilitaryScores;
+  science: ScienceScores;
 }
 
 export interface ScoringContext {
