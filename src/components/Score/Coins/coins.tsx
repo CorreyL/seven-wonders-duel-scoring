@@ -24,7 +24,6 @@ function Coins() {
   return (
     <div>
       <div>
-        <p>Score From Coins: {Math.floor(playerScore.coins / 3)}</p>
         <input
           onChange={(e) => changeScore(Number(e.target.value))}
           value={playerScore.coins}

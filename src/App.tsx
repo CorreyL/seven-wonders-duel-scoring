@@ -74,7 +74,11 @@ function App() {
           score={calculateCivilianScore()}
           ScoreComponent={Civilian}
         />
-        <Coins/>
+        <Score
+          title="Coins"
+          score={Math.floor(getCurrentPlayerScore().coins / 3)}
+          ScoreComponent={Coins}
+        />
         <Military/>
       </PlayerScoringContext.Provider>
     </>
