@@ -1,8 +1,3 @@
-.civilian > * {
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-}
-
 .civilian-btn {
   background-color: #007EC3;
   background-image: linear-gradient(to bottom right, #007EC3 60%, #03486d);

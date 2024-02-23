@@ -1,8 +1,3 @@
-.science > * {
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-}
-
 .science-btn {
   background-color: #009C59;
   background-image: linear-gradient(to bottom right, #009C59 60%, #004527);
