@@ -12,7 +12,7 @@ interface ScoreProps {
 function Score({ title, score, ScoreComponent }: ScoreProps) {
   const [ expanded, setExpanded ] = useState<boolean>(true);
   return (
-    <div>
+    <div className="score-container">
       <ScoreBanner
         title={title}
         score={score}
