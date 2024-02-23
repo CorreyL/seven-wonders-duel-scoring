@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import ScoreBanner from '../ScoreBanner';
+
 import './score.css';
 
 interface ScoreProps {
@@ -6,10 +9,20 @@ interface ScoreProps {
   ScoreComponent: React.FunctionComponent;
 }
 
-function Score() {
+function Score({ title, score, ScoreComponent }: ScoreProps) {
+  const [ expanded, setExpanded ] = useState<boolean>(true);
   return (
     <div>
-      Hello World
+      <ScoreBanner
+        title={title}
+        score={score}
+        expanded={expanded}
+        setExpanded={setExpanded}
+      />
+      {
+        expanded
+        && <ScoreComponent/>
+      }
     </div>
   );
 }
