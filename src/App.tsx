@@ -80,7 +80,7 @@ function App() {
       ),
       0,
     );
-  }
+  };
 
   return (
     <>
