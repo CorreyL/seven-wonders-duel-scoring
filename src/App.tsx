@@ -16,6 +16,7 @@ import Coins from './components/Score/Coins/coins';
 import Civilian from './components/Score/Civilian';
 import Military from './components/Score/Military';
 import Science from './components/Score/Science';
+import Commercial from './components/Score/Commercial';
 import Score from './components/Score/Score';
 
 const ScoringFactory = (): Scoring => ({
@@ -96,6 +97,11 @@ function App() {
           title="Science"
           score={calculateDistinctScoreTotal(getCurrentPlayerScore().science)}
           ScoreComponent={Science}
+        />
+        <Score
+          title="Commercial"
+          score={calculateDistinctScoreTotal(getCurrentPlayerScore().commercial)}
+          ScoreComponent={Commercial}
         />
       </PlayerScoringContext.Provider>
     </>
