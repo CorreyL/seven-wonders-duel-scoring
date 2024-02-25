@@ -16,9 +16,9 @@ export interface DistinctScores {
 export interface Scoring {
   civilian: DistinctScores;
   coins: number;
+  commercial: DistinctScores;
   military: MilitaryScores;
   science: DistinctScores;
-  commercial: DistinctScores;
 }
 
 export interface ScoringContext {

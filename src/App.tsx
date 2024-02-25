@@ -28,13 +28,13 @@ const ScoringFactory = (): Scoring => ({
     7: 0,
   },
   coins: 0,
+  commercial: {
+    3: 0,
+  },
   military: 0,
   science: {
     1: 0,
     2: 0,
-    3: 0,
-  },
-  commercial: {
     3: 0,
   },
 });
