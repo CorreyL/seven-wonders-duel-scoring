@@ -31,6 +31,15 @@ const ScoringFactory = (): Scoring => ({
   commercial: {
     3: 0,
   },
+  guildBase: {
+    builders: 0,
+    moneylenders: 0,
+    magistrates: 0,
+    merchants: 0,
+    scientists: 0,
+    shipowners: 0,
+    tactician: 0,
+  },
   military: 0,
   science: {
     1: 0,

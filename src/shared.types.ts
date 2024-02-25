@@ -13,10 +13,21 @@ export interface DistinctScores {
   [key: number]: number;
 }
 
+export interface GuildBaseScores {
+  builders: number;
+  moneylenders: number;
+  magistrates: number;
+  merchants: number;
+  scientists: number;
+  shipowners: number;
+  tactician: number;
+}
+
 export interface Scoring {
   civilian: DistinctScores;
   coins: number;
   commercial: DistinctScores;
+  guildBase: GuildBaseScores;
   military: MilitaryScores;
   science: DistinctScores;
 }
