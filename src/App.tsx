@@ -33,6 +33,9 @@ const ScoringFactory = (): Scoring => ({
     2: 0,
     3: 0,
   },
+  commercial: {
+    3: 0,
+  },
 });
 
 function App() {
