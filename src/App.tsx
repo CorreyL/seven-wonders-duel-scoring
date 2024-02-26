@@ -82,6 +82,15 @@ function App() {
     );
   };
 
+  const calculateGuildBaseTotal = (guildBaseScores: GuildBaseScores): number => {
+    return Object.keys(guildBaseScores).reduce(
+      (partialSum: number, key: string) => (
+        (guildBaseScores[key]) + partialSum
+      ),
+      0,
+    );
+  };
+
   return (
     <>
       <p>Current Player: {currentPlayer}</p>

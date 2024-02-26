@@ -14,6 +14,7 @@ export interface DistinctScores {
 }
 
 export interface GuildBaseScores {
+  [key: string]: number;
   builders: number;
   moneylenders: number;
   magistrates: number;
