@@ -46,7 +46,7 @@ function GuildBase() {
   };
 
   return (
-    <div>
+    <div className="guild-base-container">
       {
         Object.keys(guildToIconMapping).map((guildKey: string) => (
           <div

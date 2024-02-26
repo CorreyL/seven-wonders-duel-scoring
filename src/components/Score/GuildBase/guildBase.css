@@ -1,3 +1,8 @@
+.guild-base-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
 .guild-icon {
   height: 4em;
 }
