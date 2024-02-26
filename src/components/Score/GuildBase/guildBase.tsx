@@ -60,6 +60,11 @@ function GuildBase() {
             />
             <input
               inputMode="numeric"
+              onFocus={(e) => {
+                const input = e.target;
+                input.selectionStart = 0;
+                input.selectionEnd = e.target.value.length;
+              }}
               onChange={(e) => changeScore(guildKey, Number(e.target.value))}
               value={guildScore[guildKey]}
             />
