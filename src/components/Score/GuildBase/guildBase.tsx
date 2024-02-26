@@ -9,6 +9,16 @@ import shipownersIcon from '/src/assets/guild-card-icons/shipowners-guild.png';
 import tacticiansIcon from '/src/assets/guild-card-icons/tacticians-guild.png';
 
 function GuildBase() {
+  const guildToIconMapping = {
+    builders: buildersGuildIcon,
+    moneylenders: magistratesIcon,
+    magistrates: merchantsIcon,
+    merchants: moneylendersIcon,
+    scientists: scientistsIcon,
+    shipowners: shipownersIcon,
+    tactician: tacticiansIcon,
+  };
+
   return (
     <div>
     </div>
