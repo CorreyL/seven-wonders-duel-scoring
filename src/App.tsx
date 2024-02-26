@@ -3,6 +3,7 @@ import './App.css'
 
 import {
   DistinctScores,
+  GuildBaseScores,
   Player,
   Scoring,
   ScoringContext,
@@ -14,6 +15,7 @@ import {
 
 import Coins from './components/Score/Coins/coins';
 import Civilian from './components/Score/Civilian';
+import GuildBase from './components/Score/GuildBase';
 import Military from './components/Score/Military';
 import Science from './components/Score/Science';
 import Commercial from './components/Score/Commercial';
@@ -120,6 +122,11 @@ function App() {
           title="Commercial"
           score={calculateDistinctScoreTotal(getCurrentPlayerScore().commercial)}
           ScoreComponent={Commercial}
+        />
+        <Score
+          title="Guild"
+          score={calculateGuildBaseTotal(getCurrentPlayerScore().guildBase)}
+          ScoreComponent={GuildBase}
         />
       </PlayerScoringContext.Provider>
     </>
