@@ -10,17 +10,36 @@ import tacticiansIcon from '/src/assets/guild-card-icons/tacticians-guild.png';
 
 function GuildBase() {
   const guildToIconMapping = {
-    builders: buildersGuildIcon,
-    moneylenders: magistratesIcon,
+    /**
+     * Ordered non-alphabetically intentionally, to instead render the guild
+     * cards that behave similarly (i.e. X Victory Points for each Y type of
+     * card)
+     */
     magistrates: merchantsIcon,
-    merchants: moneylendersIcon,
+    moneylenders: magistratesIcon,
     scientists: scientistsIcon,
     shipowners: shipownersIcon,
     tactician: tacticiansIcon,
+
+    builders: buildersGuildIcon,
+    merchants: moneylendersIcon,
   };
 
   return (
     <div>
+      {
+        Object.keys(guildToIconMapping).map((guildKey: string) => (
+          <div
+            key={`${guildKey}-guild-score`}
+          >
+            <img
+              className="guild-icon"
+              src={guildToIconMapping[guildKey as keyof typeof guildToIconMapping]}
+              alt={`${guildKey}-guild-icon`}
+            />
+          </div>
+        ))
+      }
     </div>
   );
 }
