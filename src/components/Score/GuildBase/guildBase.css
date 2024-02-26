@@ -21,6 +21,8 @@
   width: 3em;
   height: 3em;
   text-align: center;
+  border-radius: 4px;
+  background-color: #493557;
 }
 
 .guild-icon {
