@@ -1,6 +1,21 @@
 .guild-base-container {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.guild-score-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.guild-score-container > input {
+  width: 3em;
+  height: 3em;
+  text-align: center;
 }
 
 .guild-icon {

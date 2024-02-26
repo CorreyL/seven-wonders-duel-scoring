@@ -50,6 +50,7 @@ function GuildBase() {
       {
         Object.keys(guildToIconMapping).map((guildKey: string) => (
           <div
+            className="guild-score-container"
             key={`${guildKey}-guild-score`}
           >
             <img
@@ -58,7 +59,6 @@ function GuildBase() {
               alt={`${guildKey}-guild-icon`}
             />
             <input
-              type="search"
               inputMode="numeric"
               onChange={(e) => changeScore(guildKey, Number(e.target.value))}
               value={guildScore[guildKey]}
