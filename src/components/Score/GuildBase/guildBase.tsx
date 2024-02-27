@@ -69,6 +69,7 @@ function GuildBase() {
                 setFirstInput(true);
               }}
               onChange={(e) => {
+                // @ts-expect-error e.nativeEvent does in-fact have a data key
                 const keyPressed = e.nativeEvent.data;
                 if (isNaN(Number(keyPressed))) {
                   return;
