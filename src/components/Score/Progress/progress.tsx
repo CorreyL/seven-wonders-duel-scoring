@@ -31,6 +31,16 @@ function Progress() {
     });
   };
 
+  const changeNumericScore = (progressKey: string, score: number): void => {
+    setPlayerScore({
+      ...playerScore,
+      progress: {
+        ...playerScore.progress,
+        [progressKey]: score,
+      },
+    });
+  };
+
   return (
     <div className="progress-score">
       {
@@ -50,6 +60,16 @@ function Progress() {
                   onChange={() => changeToggleableScore(progressKey)}
                   checked={playerScore.progress[progressKey] as boolean}
                   type="checkbox"
+                />
+              )
+            }
+            {
+              typeof playerScore.progress[progressKey] === "number"
+              && (
+                <input
+                  onChange={(e) => changeNumericScore(progressKey, Number(e.target.value))}
+                  value={playerScore.progress[progressKey] as number}
+                  inputMode="numeric"
                 />
               )
             }

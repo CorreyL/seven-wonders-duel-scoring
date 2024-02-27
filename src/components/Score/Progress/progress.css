@@ -21,4 +21,5 @@
 .progress-score-row > input {
   width: 5em;
   height: 5em;
+  text-align: center;
 }
