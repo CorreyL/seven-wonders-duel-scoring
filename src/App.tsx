@@ -5,6 +5,7 @@ import {
   DistinctScores,
   GuildBaseScores,
   Player,
+  ProgressScores,
   Scoring,
   ScoringContext,
 } from './shared.types';
@@ -95,6 +96,19 @@ function App() {
         (guildBaseScores[key]) + partialSum
       ),
       0,
+    );
+  };
+
+  const calculateProgressTokensTotal = (progress: ProgressScores): number => {
+    const {
+      agriculture,
+      mathematics,
+      philosophy,
+    } = progress
+    return (
+      4 * Number(agriculture)
+      + 3 * mathematics
+      + 7 * Number(philosophy)
     );
   };
 
