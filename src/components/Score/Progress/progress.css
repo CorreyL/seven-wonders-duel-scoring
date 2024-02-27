@@ -10,3 +10,8 @@
 .progress-score-row > img {
   height: 7em;
 }
+
+.progress-score-row > input {
+  width: 5em;
+  height: 5em;
+}

@@ -23,6 +23,9 @@ function Progress() {
               src={mapProgressKeysToIcons[progressKey as keyof typeof mapProgressKeysToIcons]}
               alt={`${progressKey} Progress Token Icon`}
             />
+            <input
+              type="checkbox"
+            />
           </div>
         ))
       }
