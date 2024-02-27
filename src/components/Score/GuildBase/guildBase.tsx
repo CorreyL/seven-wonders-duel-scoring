@@ -1,4 +1,7 @@
-import { useContext } from 'react';
+import {
+  useContext,
+  useState,
+} from 'react';
 import { PlayerScoringContext } from '../../../context/Scoring';
 
 import './guildBase.css';
@@ -12,6 +15,8 @@ import shipownersIcon from '/src/assets/guild-card-icons/shipowners-guild.png';
 import tacticiansIcon from '/src/assets/guild-card-icons/tacticians-guild.png';
 
 function GuildBase() {
+  const [ firstInput, setFirstInput ] = useState(true);
+
   const {
     playerScore,
     setPlayerScore,
@@ -60,12 +65,20 @@ function GuildBase() {
             />
             <input
               inputMode="numeric"
-              onFocus={(e) => {
-                const input = e.target;
-                input.selectionStart = 0;
-                input.selectionEnd = e.target.value.length;
+              onFocus={() => {
+                setFirstInput(true);
               }}
-              onChange={(e) => changeScore(guildKey, Number(e.target.value))}
+              onChange={(e) => {
+                const keyPressed = e.nativeEvent.data;
+                if (firstInput) {
+                  e.target.value = String(keyPressed);
+                  setFirstInput(false);
+                }
+                changeScore(guildKey, Number(e.target.value));
+              }}
+              onBlur={() => {
+                setFirstInput(true);
+              }}
               value={guildScore[guildKey]}
             />
           </div>
