@@ -70,6 +70,9 @@ function GuildBase() {
               }}
               onChange={(e) => {
                 const keyPressed = e.nativeEvent.data;
+                if (isNaN(Number(keyPressed))) {
+                  return;
+                }
                 if (firstInput) {
                   e.target.value = String(keyPressed);
                   setFirstInput(false);
