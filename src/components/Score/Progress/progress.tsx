@@ -12,10 +12,11 @@ function Progress() {
   };
 
   return (
-    <div>
+    <div className="progress-score">
       {
         Object.keys(mapProgressKeysToIcons).map((progressKey) => (
           <div
+            className="progress-score-row"
             key={`${progressKey}-icon`}
           >
             <img

@@ -1,0 +1,12 @@
+.progress-score {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.progress-score-row {
+  display: flex;
+}
+
+.progress-score-row > img {
+  height: 5em;
+}
