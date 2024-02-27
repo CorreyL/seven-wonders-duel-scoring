@@ -25,3 +25,7 @@
   border-radius: 4px;
   background-color: #025f36;
 }
+
+.progress-score-row > input[type=checkbox]:checked {
+  accent-color: #025f36;
+}
