@@ -28,7 +28,7 @@ function Progress() {
         ...playerScore.progress,
         [progressKey]: !playerScore.progress[progressKey],
       },
-    })
+    });
   };
 
   return (
