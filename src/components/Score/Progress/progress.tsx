@@ -43,11 +43,16 @@ function Progress() {
               src={mapProgressKeysToIcons[progressKey as keyof typeof mapProgressKeysToIcons]}
               alt={`${progressKey} Progress Token Icon`}
             />
-            <input
-              onChange={() => changeToggleableScore(progressKey)}
-              checked={playerScore.progress[progressKey] as boolean}
-              type="checkbox"
-            />
+            {
+              typeof playerScore.progress[progressKey] === "boolean"
+              && (
+                <input
+                  onChange={() => changeToggleableScore(progressKey)}
+                  checked={playerScore.progress[progressKey] as boolean}
+                  type="checkbox"
+                />
+              )
+            }
           </div>
         ))
       }
