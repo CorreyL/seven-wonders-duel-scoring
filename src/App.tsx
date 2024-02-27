@@ -18,6 +18,7 @@ import Coins from './components/Score/Coins/coins';
 import Civilian from './components/Score/Civilian';
 import GuildBase from './components/Score/GuildBase';
 import Military from './components/Score/Military';
+import Progress from './components/Score/Progress';
 import Science from './components/Score/Science';
 import Commercial from './components/Score/Commercial';
 import Score from './components/Score/Score';
@@ -146,6 +147,11 @@ function App() {
           title="Guild"
           score={calculateGuildBaseTotal(getCurrentPlayerScore().guildBase)}
           ScoreComponent={GuildBase}
+        />
+        <Score
+          title="Progress"
+          score={calculateProgressTokensTotal(getCurrentPlayerScore().progress)}
+          ScoreComponent={Progress}
         />
       </PlayerScoringContext.Provider>
     </>
