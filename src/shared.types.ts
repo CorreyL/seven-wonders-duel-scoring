@@ -24,6 +24,13 @@ export interface GuildBaseScores {
   tactician: number;
 }
 
+export interface ProgressScores {
+  [key: string]: boolean | number;
+  agriculture: boolean;
+  mathematics: number;
+  philosophy: boolean;
+}
+
 export interface Scoring {
   civilian: DistinctScores;
   coins: number;
@@ -31,6 +38,7 @@ export interface Scoring {
   guildBase: GuildBaseScores;
   military: MilitaryScores;
   science: DistinctScores;
+  progress: ProgressScores;
 }
 
 export interface ScoringContext {

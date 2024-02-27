@@ -43,6 +43,11 @@ const ScoringFactory = (): Scoring => ({
     tactician: 0,
   },
   military: 0,
+  progress: {
+    agriculture: false,
+    mathematics: 0,
+    philosophy: false,
+  },
   science: {
     1: 0,
     2: 0,
