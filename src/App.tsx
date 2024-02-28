@@ -55,6 +55,20 @@ const ScoringFactory = (): Scoring => ({
     2: 0,
     3: 0,
   },
+  wonders: {
+    appianWay: { built: false, value: 3 },
+    circusMaximus: { built: false, value: 3 },
+    colossus: { built: false, value: 3 },
+    greatLibrary: { built: false, value: 4 },
+    greatLighthouse: { built: false, value: 4 },
+    hangingGardens: { built: false, value: 3 },
+    mausoleum: { built: false, value: 2 },
+    piraeus: { built: false, value: 2 },
+    pyramids: { built: false, value: 9 },
+    sphinx: { built: false, value: 6 },
+    statueOfZeus: { built: false, value: 3 },
+    templeOfArtemis: { built: false, value: 0 },
+  },
 });
 
 function App() {

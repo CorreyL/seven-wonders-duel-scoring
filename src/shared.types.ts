@@ -31,6 +31,27 @@ export interface ProgressScores {
   philosophy: boolean;
 }
 
+interface WonderValueAndTracker {
+  built: boolean,
+  value: number,
+}
+
+export interface WonderScores {
+  [key: string]: WonderValueAndTracker;
+  appianWay: WonderValueAndTracker;
+  circusMaximus: WonderValueAndTracker;
+  colossus: WonderValueAndTracker;
+  greatLibrary: WonderValueAndTracker;
+  greatLighthouse: WonderValueAndTracker;
+  hangingGardens: WonderValueAndTracker;
+  mausoleum: WonderValueAndTracker;
+  piraeus: WonderValueAndTracker;
+  pyramids: WonderValueAndTracker;
+  sphinx: WonderValueAndTracker;
+  statueOfZeus: WonderValueAndTracker;
+  templeOfArtemis: WonderValueAndTracker;
+}
+
 export interface Scoring {
   civilian: DistinctScores;
   coins: number;
@@ -39,6 +60,7 @@ export interface Scoring {
   military: MilitaryScores;
   science: DistinctScores;
   progress: ProgressScores;
+  wonders: WonderScores
 }
 
 export interface ScoringContext {
