@@ -36,20 +36,21 @@ interface WonderValueAndTracker {
   value: number,
 }
 
-export interface WonderScores {
-  [key: string]: WonderValueAndTracker;
-  appianWay: WonderValueAndTracker;
-  circusMaximus: WonderValueAndTracker;
-  colossus: WonderValueAndTracker;
-  greatLibrary: WonderValueAndTracker;
-  greatLighthouse: WonderValueAndTracker;
-  hangingGardens: WonderValueAndTracker;
-  mausoleum: WonderValueAndTracker;
-  piraeus: WonderValueAndTracker;
-  pyramids: WonderValueAndTracker;
-  sphinx: WonderValueAndTracker;
-  statueOfZeus: WonderValueAndTracker;
-  templeOfArtemis: WonderValueAndTracker;
+export type WonderKeys = 'appianWay'
+  | 'circusMaximus'
+  | 'colossus'
+  | 'greatLibrary'
+  | 'greatLighthouse'
+  | 'hangingGardens'
+  | 'mausoleum'
+  | 'piraeus'
+  | 'pyramids'
+  | 'sphinx'
+  | 'statueOfZeus'
+  | 'templeOfArtemis'
+
+export type WonderScores = {
+  [key in WonderKeys]: WonderValueAndTracker;
 }
 
 export interface Scoring {
