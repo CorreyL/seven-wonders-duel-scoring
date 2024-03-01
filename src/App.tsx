@@ -5,9 +5,12 @@ import {
   DistinctScores,
   GuildBaseScores,
   Player,
+  PlayerOwnedWonders,
   ProgressScores,
   Scoring,
   ScoringContext,
+  WondersContext,
+  WonderKeys,
 } from './shared.types';
 
 import {
@@ -22,6 +25,7 @@ import Progress from './components/Score/Progress';
 import Science from './components/Score/Science';
 import Commercial from './components/Score/Commercial';
 import Score from './components/Score/Score';
+import { OwnedWondersContext } from './context/Wonders';
 
 const ScoringFactory = (): Scoring => ({
   civilian: {
@@ -75,6 +79,10 @@ function App() {
   const [ currentPlayer, setCurrentPlayer ] = useState<Player>(Player.One);
   const [ playerOneScore, setPlayerOneScore ] = useState<Scoring>(ScoringFactory());
   const [ playerTwoScore, setPlayerTwoScore ] = useState<Scoring>(ScoringFactory());
+  const [ playerOwnedWonders, setPlayerOwnedWonders ] = useState<PlayerOwnedWonders>({
+    [Player.One]: new Set<WonderKeys>(),
+    [Player.Two]: new Set<WonderKeys>(),
+  });
 
   const changePlayer = (): void => {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
@@ -94,6 +102,13 @@ function App() {
         ? { playerScore: playerOneScore, setPlayerScore: setPlayerOneScore, }
         : { playerScore: playerTwoScore, setPlayerScore: setPlayerTwoScore, }
     )
+  };
+
+  const getCurrentPlayerOwnedWondersContext = (): WondersContext => {
+    return ({
+      ownedWonders: playerOwnedWonders[currentPlayer],
+      setOwnedWonders: setPlayerOwnedWonders,
+    });
   };
 
   const calculateDistinctScoreTotal = (distinctScores: DistinctScores): number => {
@@ -131,43 +146,45 @@ function App() {
     <>
       <p>Current Player: {currentPlayer}</p>
       <button onClick={changePlayer}>Change Player</button>
-      <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
-        <Score
-          title="Civilian"
-          score={calculateDistinctScoreTotal(getCurrentPlayerScore().civilian)}
-          ScoreComponent={Civilian}
-        />
-        <Score
-          title="Coins"
-          score={Math.floor(getCurrentPlayerScore().coins / 3)}
-          ScoreComponent={Coins}
-        />
-        <Score
-          title="Military"
-          score={getCurrentPlayerScore().military}
-          ScoreComponent={Military}
-        />
-        <Score
-          title="Science"
-          score={calculateDistinctScoreTotal(getCurrentPlayerScore().science)}
-          ScoreComponent={Science}
-        />
-        <Score
-          title="Commercial"
-          score={calculateDistinctScoreTotal(getCurrentPlayerScore().commercial)}
-          ScoreComponent={Commercial}
-        />
-        <Score
-          title="Guild"
-          score={calculateGuildBaseTotal(getCurrentPlayerScore().guildBase)}
-          ScoreComponent={GuildBase}
-        />
-        <Score
-          title="Progress"
-          score={calculateProgressTokensTotal(getCurrentPlayerScore().progress)}
-          ScoreComponent={Progress}
-        />
-      </PlayerScoringContext.Provider>
+      <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>
+        <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
+          <Score
+            title="Civilian"
+            score={calculateDistinctScoreTotal(getCurrentPlayerScore().civilian)}
+            ScoreComponent={Civilian}
+          />
+          <Score
+            title="Coins"
+            score={Math.floor(getCurrentPlayerScore().coins / 3)}
+            ScoreComponent={Coins}
+          />
+          <Score
+            title="Military"
+            score={getCurrentPlayerScore().military}
+            ScoreComponent={Military}
+          />
+          <Score
+            title="Science"
+            score={calculateDistinctScoreTotal(getCurrentPlayerScore().science)}
+            ScoreComponent={Science}
+          />
+          <Score
+            title="Commercial"
+            score={calculateDistinctScoreTotal(getCurrentPlayerScore().commercial)}
+            ScoreComponent={Commercial}
+          />
+          <Score
+            title="Guild"
+            score={calculateGuildBaseTotal(getCurrentPlayerScore().guildBase)}
+            ScoreComponent={GuildBase}
+          />
+          <Score
+            title="Progress"
+            score={calculateProgressTokensTotal(getCurrentPlayerScore().progress)}
+            ScoreComponent={Progress}
+          />
+        </PlayerScoringContext.Provider>
+      </OwnedWondersContext.Provider>
     </>
   );
 }
