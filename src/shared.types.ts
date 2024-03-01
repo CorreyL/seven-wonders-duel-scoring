@@ -64,9 +64,14 @@ export interface Scoring {
   wonders: WonderScores
 }
 
+export interface PlayerOwnedWonders {
+  [Player.One]: Set<WonderKeys>,
+  [Player.Two]: Set<WonderKeys>,
+}
+
 export interface WondersContext {
   ownedWonders: Set<WonderKeys>;
-  setOwnedWonders: React.Dispatch<React.SetStateAction<Set<WonderKeys>>>;
+  setOwnedWonders: React.Dispatch<React.SetStateAction<PlayerOwnedWonders>>;
 }
 
 export interface ScoringContext {
