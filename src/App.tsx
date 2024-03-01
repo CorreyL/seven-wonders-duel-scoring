@@ -5,6 +5,7 @@ import {
   DistinctScores,
   GuildBaseScores,
   Player,
+  PlayerScores,
   PlayerOwnedWonders,
   ProgressScores,
   Scoring,
@@ -77,8 +78,10 @@ const ScoringFactory = (): Scoring => ({
 
 function App() {
   const [ currentPlayer, setCurrentPlayer ] = useState<Player>(Player.One);
-  const [ playerOneScore, setPlayerOneScore ] = useState<Scoring>(ScoringFactory());
-  const [ playerTwoScore, setPlayerTwoScore ] = useState<Scoring>(ScoringFactory());
+  const [ playerScores, setPlayerScores ] = useState<PlayerScores>({
+    [Player.One]: ScoringFactory(),
+    [Player.Two]: ScoringFactory(),
+  });
   const [ playerOwnedWonders, setPlayerOwnedWonders ] = useState<PlayerOwnedWonders>({
     [Player.One]: new Set<WonderKeys>(),
     [Player.Two]: new Set<WonderKeys>(),
@@ -88,20 +91,12 @@ function App() {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
   };
 
-  const getCurrentPlayerScore = (): Scoring => {
-    return (
-      (currentPlayer === Player.One)
-        ? playerOneScore
-        : playerTwoScore
-    );
-  };
-
   const getCurrentPlayerContext = (): ScoringContext => {
-    return (
-      (currentPlayer === Player.One)
-        ? { playerScore: playerOneScore, setPlayerScore: setPlayerOneScore, }
-        : { playerScore: playerTwoScore, setPlayerScore: setPlayerTwoScore, }
-    )
+    return ({
+      currentPlayer,
+      playerScore: playerScores[currentPlayer],
+      setPlayerScores,
+    })
   };
 
   const getCurrentPlayerOwnedWondersContext = (): WondersContext => {
@@ -151,37 +146,37 @@ function App() {
         <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
           <Score
             title="Civilian"
-            score={calculateDistinctScoreTotal(getCurrentPlayerScore().civilian)}
+            score={calculateDistinctScoreTotal(playerScores[currentPlayer].civilian)}
             ScoreComponent={Civilian}
           />
           <Score
             title="Coins"
-            score={Math.floor(getCurrentPlayerScore().coins / 3)}
+            score={Math.floor(playerScores[currentPlayer].coins / 3)}
             ScoreComponent={Coins}
           />
           <Score
             title="Military"
-            score={getCurrentPlayerScore().military}
+            score={playerScores[currentPlayer].military}
             ScoreComponent={Military}
           />
           <Score
             title="Science"
-            score={calculateDistinctScoreTotal(getCurrentPlayerScore().science)}
+            score={calculateDistinctScoreTotal(playerScores[currentPlayer].science)}
             ScoreComponent={Science}
           />
           <Score
             title="Commercial"
-            score={calculateDistinctScoreTotal(getCurrentPlayerScore().commercial)}
+            score={calculateDistinctScoreTotal(playerScores[currentPlayer].commercial)}
             ScoreComponent={Commercial}
           />
           <Score
             title="Guild"
-            score={calculateGuildBaseTotal(getCurrentPlayerScore().guildBase)}
+            score={calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)}
             ScoreComponent={GuildBase}
           />
           <Score
             title="Progress"
-            score={calculateProgressTokensTotal(getCurrentPlayerScore().progress)}
+            score={calculateProgressTokensTotal(playerScores[currentPlayer].progress)}
             ScoreComponent={Progress}
           />
         </PlayerScoringContext.Provider>

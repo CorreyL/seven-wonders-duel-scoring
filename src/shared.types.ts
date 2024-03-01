@@ -53,6 +53,11 @@ export type WonderScores = {
   [key in WonderKeys]: WonderValueAndTracker;
 }
 
+export interface PlayerScores {
+  [Player.One]: Scoring,
+  [Player.Two]: Scoring,
+}
+
 export interface Scoring {
   civilian: DistinctScores;
   coins: number;
@@ -75,7 +80,13 @@ export interface WondersContext {
   setOwnedWonders: React.Dispatch<React.SetStateAction<PlayerOwnedWonders>>;
 }
 
+export interface PlayerScores {
+  [Player.One]: Scoring,
+  [Player.Two]: Scoring,
+}
+
 export interface ScoringContext {
+  currentPlayer: Player;
   playerScore: Scoring;
-  setPlayerScore: React.Dispatch<React.SetStateAction<Scoring>>;
+  setPlayerScores: React.Dispatch<React.SetStateAction<PlayerScores>>;
 }
