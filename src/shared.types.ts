@@ -70,6 +70,7 @@ export interface PlayerOwnedWonders {
 }
 
 export interface WondersContext {
+  currentPlayer: Player;
   ownedWonders: Set<WonderKeys>;
   setOwnedWonders: React.Dispatch<React.SetStateAction<PlayerOwnedWonders>>;
 }

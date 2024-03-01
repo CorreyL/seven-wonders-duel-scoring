@@ -106,6 +106,7 @@ function App() {
 
   const getCurrentPlayerOwnedWondersContext = (): WondersContext => {
     return ({
+      currentPlayer,
       ownedWonders: playerOwnedWonders[currentPlayer],
       setOwnedWonders: setPlayerOwnedWonders,
     });
