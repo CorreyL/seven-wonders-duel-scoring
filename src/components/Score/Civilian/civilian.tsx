@@ -5,26 +5,33 @@ import './civilian.css';
 
 function Civilian() {
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const { civilian: civilianScore } = playerScore;
 
   const addCivilianCard = (score: number): void => {
     civilianScore[score] += 1;
-    setPlayerScore({
-      ...playerScore,
-      civilian: civilianScore,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        civilian: civilianScore,
+      },
+    }));
   };
 
   const removeCivilianCard = (score: number): void => {
     civilianScore[score] -= 1;
-    setPlayerScore({
-      ...playerScore,
-      civilian: civilianScore,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        civilian: civilianScore,
+      },
+    }));
   }
 
   return (

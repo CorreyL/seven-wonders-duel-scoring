@@ -6,17 +6,21 @@ import './military.css';
 
 function Military() {
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const possibleScores = [0, 2, 5, 10] as Array<MilitaryScores>;
 
   const setMilitaryScore = (score: MilitaryScores) => {
-    setPlayerScore({
-      ...playerScore,
-      military: score,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        military: score,
+      }
+    }));
   };
 
   return (

@@ -5,26 +5,33 @@ import './science.css';
 
 function Science() {
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const { science: scienceScore } = playerScore;
 
   const addScienceCard = (score: number): void => {
     scienceScore[score] += 1;
-    setPlayerScore({
-      ...playerScore,
-      science: scienceScore,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        science: scienceScore,
+      },
+    }));
   };
 
   const removeScienceCard = (score: number): void => {
     scienceScore[score] -= 1;
-    setPlayerScore({
-      ...playerScore,
-      science: scienceScore,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        science: scienceScore,
+      },
+    }));
   }
 
   return (

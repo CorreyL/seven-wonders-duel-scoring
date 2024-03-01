@@ -5,26 +5,33 @@ import './commercial.css';
 
 function Commercial() {
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const { commercial: commercialScore } = playerScore;
 
   const addCommercialCard = (score: number): void => {
     commercialScore[score] += 1;
-    setPlayerScore({
-      ...playerScore,
-      commercial: commercialScore,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        commercial: commercialScore,
+      },
+    }));
   };
 
   const removeCommercialCard = (score: number): void => {
     commercialScore[score] -= 1;
-    setPlayerScore({
-      ...playerScore,
-      commercial: commercialScore,
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        commercial: commercialScore,
+      },
+    }));
   }
 
   return (

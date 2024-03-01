@@ -18,20 +18,24 @@ function GuildBase() {
   const [ firstInput, setFirstInput ] = useState(true);
 
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const { guildBase: guildScore } = playerScore;
 
   const changeScore = (guildKey: string, score: number): void => {
-    setPlayerScore({
-      ...playerScore,
-      guildBase: {
-        ...playerScore.guildBase,
-        [guildKey]: score,
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        guildBase: {
+          ...playerScore.guildBase,
+          [guildKey]: score,
+        },
       }
-    });
+    }));
   };
 
   const guildToIconMapping = {

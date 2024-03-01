@@ -8,17 +8,21 @@ import './coins.css';
 
 function Coins() {
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const changeScore = (score: number, increment: boolean = false) => {
-    setPlayerScore({
-      ...playerScore,
-      coins: (increment)
-        ? playerScore.coins + score
-        : score
-    });
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        coins: (increment)
+          ? playerScore.coins + score
+          : score
+      }
+    }));
   };
 
   return (

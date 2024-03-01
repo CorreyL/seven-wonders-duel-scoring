@@ -11,8 +11,9 @@ import Philosophy from '/src/assets/progress-tokens/philosophy.png';
 
 function Progress() {
   const {
+    currentPlayer,
     playerScore,
-    setPlayerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
 
   const mapProgressKeysToIcons = {
@@ -22,23 +23,29 @@ function Progress() {
   };
 
   const changeToggleableScore = (progressKey: string): void => {
-    setPlayerScore({
-      ...playerScore,
-      progress: {
-        ...playerScore.progress,
-        [progressKey]: !playerScore.progress[progressKey],
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        progress: {
+          ...playerScore.progress,
+          [progressKey]: !playerScore.progress[progressKey],
+        },
       },
-    });
+    }));
   };
 
   const changeNumericScore = (progressKey: string, score: number): void => {
-    setPlayerScore({
-      ...playerScore,
-      progress: {
-        ...playerScore.progress,
-        [progressKey]: score,
+    setPlayerScores((prevPlayerScores) => ({
+      ...prevPlayerScores,
+      [currentPlayer]: {
+        ...playerScore,
+        progress: {
+          ...playerScore.progress,
+          [progressKey]: score,
+        },
       },
-    });
+    }));
   };
 
   return (
