@@ -34,12 +34,16 @@ function SelectWonder({ wonderKey, wonderImage }: SelectWonderProps) {
   };
 
   return (
-    <div>
+    <div className="select-wonder-container">
       <img
         src={wonderImage}
         alt={`${wonderKey}-wonder`}
         onClick={toggleWonder}
       />
+      {
+        ownedWonders.has(wonderKey)
+        && <div className="overlay"></div>
+      }
     </div>
   );
 }
