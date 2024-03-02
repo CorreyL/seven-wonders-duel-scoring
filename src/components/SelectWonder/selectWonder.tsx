@@ -35,6 +35,11 @@ function SelectWonder({ wonderKey, wonderImage }: SelectWonderProps) {
 
   return (
     <div>
+      <img
+        src={wonderImage}
+        alt={`${wonderKey}-wonder`}
+        onClick={toggleWonder}
+      />
     </div>
   );
 }
