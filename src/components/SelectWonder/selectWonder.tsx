@@ -3,6 +3,9 @@ import {
 } from 'react';
 
 import { OwnedWondersContext } from '../../context/Wonders';
+import {
+  WonderKeys,
+} from '../../shared.types';
 
 import './selectWonder.css';
 
