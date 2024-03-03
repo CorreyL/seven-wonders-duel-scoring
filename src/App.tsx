@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import {
+  AppPages,
   Player,
   PlayerScores,
   PlayerOwnedWonders,
@@ -69,6 +70,7 @@ const ScoringFactory = (): Scoring => ({
 });
 
 function App() {
+  const [ appPage, setAppPage ] = useState<number>(AppPages.WonderSelection);
   const [ currentPlayer, setCurrentPlayer ] = useState<Player>(Player.One);
   const [ playerScores, setPlayerScores ] = useState<PlayerScores>({
     [Player.One]: ScoringFactory(),
@@ -78,6 +80,10 @@ function App() {
     [Player.One]: new Set<WonderKeys>(),
     [Player.Two]: new Set<WonderKeys>(),
   });
+
+  const changePage = (pageIncrement: number): void => {
+    setAppPage((prevAppPage) => (prevAppPage + pageIncrement))
+  };
 
   const changePlayer = (): void => {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
@@ -101,6 +107,20 @@ function App() {
 
   return (
     <>
+      <div>
+        <button
+          disabled={appPage === AppPages.WonderSelection}
+          onClick={() => {changePage(-1)}}
+        >
+          Prev Page
+        </button>
+        <button
+          disabled={appPage === AppPages.Results}
+          onClick={() => {changePage(1)}}
+        >
+          Next Page
+        </button>
+      </div>
       <p>Current Player: {currentPlayer}</p>
       <button onClick={changePlayer}>Change Player</button>
       <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>

@@ -1,3 +1,9 @@
+export enum AppPages {
+  WonderSelection = 1,
+  Scoring = 2,
+  Results = 3,
+}
+
 export enum Player {
   One = 1,
   Two = 2,
