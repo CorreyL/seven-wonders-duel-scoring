@@ -17,6 +17,7 @@ import {
 } from './context/Scoring';
 
 import {
+  OwnedWonders,
   Scoring as ScoringPage,
 } from './pages';
 import { OwnedWondersContext } from './context/Wonders';
@@ -125,10 +126,19 @@ function App() {
       <button onClick={changePlayer}>Change Player</button>
       <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>
         <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
-          <ScoringPage
-            currentPlayer={currentPlayer}
-            playerScores={playerScores}
-          />
+          {
+            appPage === AppPages.WonderSelection
+            && <OwnedWonders/>
+          }
+          {
+            appPage === AppPages.Scoring
+            && (
+              <ScoringPage
+                currentPlayer={currentPlayer}
+                playerScores={playerScores}
+              />
+            )
+          }
         </PlayerScoringContext.Provider>
       </OwnedWondersContext.Provider>
     </>
