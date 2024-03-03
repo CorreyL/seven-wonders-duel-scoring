@@ -1,48 +1,34 @@
 import {
-  useContext,
-} from 'react';
-
-import { OwnedWondersContext } from '../../context/Wonders';
-import {
   WonderKeys,
 } from '../../shared.types';
 
 import './selectWonder.css';
 
 interface SelectWonderProps {
+  selectWonder: (wonderKey: WonderKeys) => void;
+  wonderSet: Set<WonderKeys>;
   wonderKey: WonderKeys;
   wonderImage: string;
 }
 
-function SelectWonder({ wonderKey, wonderImage }: SelectWonderProps) {
-  const {
-    currentPlayer,
-    ownedWonders,
-    setOwnedWonders,
-  } = useContext(OwnedWondersContext);
-
-  const toggleWonder = (): void => {
-    if (ownedWonders.has(wonderKey)) {
-      ownedWonders.delete(wonderKey);
-    } else {
-      ownedWonders.add(wonderKey);
-    }
-    setOwnedWonders((prevOwnedWonders) => ({
-      ...prevOwnedWonders,
-      [currentPlayer]: ownedWonders,
-    }));
-  };
-
+function SelectWonder({
+  selectWonder,
+  wonderKey,
+  wonderImage,
+  wonderSet,
+}: SelectWonderProps) {
   return (
     <div className="select-wonder-container">
       <img
         src={wonderImage}
         className="select-wonder-image"
         alt={`${wonderKey}-wonder`}
-        onClick={toggleWonder}
+        onClick={() => {
+          selectWonder(wonderKey);
+        }}
       />
       {
-        ownedWonders.has(wonderKey)
+        wonderSet.has(wonderKey)
         && <div className="overlay"></div>
       }
     </div>

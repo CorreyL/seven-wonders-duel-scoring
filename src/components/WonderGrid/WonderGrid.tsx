@@ -4,10 +4,16 @@ import wonderKeyToImagePath from '../../assets/wonders/wonderKeyToImagePath';
 import './WonderGrid.css';
 
 interface WonderGridProps {
+  selectWonder: (wonderKey: WonderKeys) => void;
+  wonderSet: Set<WonderKeys>;
   wondersToRender: Set<WonderKeys>;
 }
 
-function WonderGrid({ wondersToRender }: WonderGridProps) {
+function WonderGrid({
+  selectWonder,
+  wonderSet,
+  wondersToRender
+}: WonderGridProps) {
   return (
     <div className="wonder-grid">
       {
@@ -15,6 +21,8 @@ function WonderGrid({ wondersToRender }: WonderGridProps) {
           return (
             <SelectWonder
               key={`select-wonder-${wonderKey}-${idx}`}
+              selectWonder={selectWonder}
+              wonderSet={wonderSet}
               wonderKey={wonderKey}
               wonderImage={wonderKeyToImagePath[wonderKey]}
             />
