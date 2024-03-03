@@ -15,6 +15,7 @@ import Progress from '../../components/Score/Progress';
 import Science from '../../components/Score/Science';
 import Commercial from '../../components/Score/Commercial';
 import Score from '../../components/Score/Score';
+import Wonder from '../../components/Score/Wonder';
 
 import './Scoring.css';
 
@@ -121,6 +122,11 @@ function Scoring({
         title="Progress"
         score={calculateProgressTokensTotal(playerScores[currentPlayer].progress)}
         ScoreComponent={Progress}
+      />
+      <Score
+        title="Wonder"
+        score={calculateWonderTotal(playerScores[currentPlayer].wonders)}
+        ScoreComponent={Wonder}
       />
     </div>
   );
