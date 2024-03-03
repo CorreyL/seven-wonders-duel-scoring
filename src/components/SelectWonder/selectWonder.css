@@ -2,6 +2,16 @@
   position: relative;
 }
 
+.select-wonder-image {
+  height: 9em;
+}
+
+@media (max-width: 535px) {
+  .select-wonder-image {
+    height: 15em;
+  }
+}
+
 .overlay {
   position: absolute;
   top: 0;

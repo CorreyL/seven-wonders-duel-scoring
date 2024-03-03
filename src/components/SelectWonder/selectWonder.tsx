@@ -37,6 +37,7 @@ function SelectWonder({ wonderKey, wonderImage }: SelectWonderProps) {
     <div className="select-wonder-container">
       <img
         src={wonderImage}
+        className="select-wonder-image"
         alt={`${wonderKey}-wonder`}
         onClick={toggleWonder}
       />
