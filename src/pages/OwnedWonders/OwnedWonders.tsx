@@ -29,6 +29,7 @@ function OwnedWonders() {
 
   return (
     <div>
+      <div>Select the 4 wonders Player {currentPlayer} chose</div>
       <WonderGrid
         wondersToRender={new Set(
           Object.keys(wonderKeyToImagePath) as Array<WonderKeys>
