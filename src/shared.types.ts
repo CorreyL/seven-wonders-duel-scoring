@@ -72,7 +72,7 @@ export interface Scoring {
   military: MilitaryScores;
   science: DistinctScores;
   progress: ProgressScores;
-  wonders: WonderScores
+  wonders: WonderScores;
 }
 
 export interface PlayerOwnedWonders {
