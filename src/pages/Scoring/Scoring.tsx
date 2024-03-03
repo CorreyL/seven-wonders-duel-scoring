@@ -90,10 +90,30 @@ function Scoring({
     );
   };
 
+  const calculateTotalScore = (): number => {
+    return (
+      calculateDistinctScoreTotal(playerScores[currentPlayer].civilian)
+      + calculateCoinsTotal(playerScores[currentPlayer].coins)
+      + playerScores[currentPlayer].military
+      + calculateDistinctScoreTotal(playerScores[currentPlayer].science)
+      + calculateDistinctScoreTotal(playerScores[currentPlayer].commercial)
+      + calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)
+      + calculateProgressTokensTotal(playerScores[currentPlayer].progress)
+      + calculateWonderTotal(playerScores[currentPlayer].wonders)
+    );
+  };
+
   return (
     <div
       className="scores"
     >
+      {
+        /**
+         * @todo Render total score at the top of the app, regardless of
+         * scroll position
+         */
+      }
+      <div>Total Score: {calculateTotalScore()}</div>
       <Score
         title="Civilian"
         score={calculateDistinctScoreTotal(playerScores[currentPlayer].civilian)}
@@ -134,6 +154,7 @@ function Scoring({
         score={calculateWonderTotal(playerScores[currentPlayer].wonders)}
         ScoreComponent={Wonder}
       />
+      <div>Total Score: {calculateTotalScore()}</div>
     </div>
   );
 }
