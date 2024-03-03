@@ -37,6 +37,10 @@ function Scoring({
     );
   };
 
+  const calculateCoinsTotal = (coins: number): number => {
+    return Math.floor(coins / 3)
+  };
+
   const calculateGuildBaseTotal = (guildBaseScores: GuildBaseScores): number => {
     return Object.keys(guildBaseScores).reduce(
       (partialSum: number, key: string) => (
@@ -97,7 +101,7 @@ function Scoring({
       />
       <Score
         title="Coins"
-        score={Math.floor(playerScores[currentPlayer].coins / 3)}
+        score={calculateCoinsTotal(playerScores[currentPlayer].coins)}
         ScoreComponent={Coins}
       />
       <Score
