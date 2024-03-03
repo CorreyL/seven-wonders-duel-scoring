@@ -111,6 +111,9 @@ function Scoring({
         /**
          * @todo Render total score at the top of the app, regardless of
          * scroll position
+         *
+         * In this same bar, add a button to expand or collapse all Score
+         * components
          */
       }
       <div>Total Score: {calculateTotalScore()}</div>
