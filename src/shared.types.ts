@@ -37,11 +37,6 @@ export interface ProgressScores {
   philosophy: boolean;
 }
 
-interface WonderValueAndTracker {
-  built: boolean,
-  value: number,
-}
-
 export type WonderKeys = 'appianWay'
   | 'circusMaximus'
   | 'colossus'
@@ -54,10 +49,6 @@ export type WonderKeys = 'appianWay'
   | 'sphinx'
   | 'statueOfZeus'
   | 'templeOfArtemis'
-
-export type WonderScores = {
-  [key in WonderKeys]: WonderValueAndTracker;
-}
 
 export interface PlayerScores {
   [Player.One]: Scoring,
@@ -72,7 +63,7 @@ export interface Scoring {
   military: MilitaryScores;
   science: DistinctScores;
   progress: ProgressScores;
-  wonders: WonderScores;
+  wonders: Set<WonderKeys>;
 }
 
 export interface PlayerOwnedWonders {
