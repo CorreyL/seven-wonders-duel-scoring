@@ -67,6 +67,14 @@ function GuildBase() {
               src={guildToIconMapping[guildKey as keyof typeof guildToIconMapping]}
               alt={`${guildKey}-guild-icon`}
             />
+            {
+              /**
+               * @todo A similar input is needed in the Progress component
+               *
+               * Spin this out into its own component, and use it in both
+               * components
+               */
+            }
             <input
               inputMode="numeric"
               onFocus={() => {
