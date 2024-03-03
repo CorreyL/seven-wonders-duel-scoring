@@ -3,3 +3,5 @@ import { ScoringContext } from '../shared.types';
 
 export const PlayerScoringContext = createContext({} as ScoringContext);
 PlayerScoringContext.displayName = 'PlayerScoringContext';
+
+export default PlayerScoringContext;
