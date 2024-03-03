@@ -4,6 +4,7 @@ import {
   Player,
   PlayerScores,
   ProgressScores,
+  WonderKeys,
 } from '../../shared.types';
 
 import Coins from '../../components/Score/Coins/coins';
@@ -54,6 +55,33 @@ function Scoring({
       4 * Number(agriculture)
       + 3 * mathematics
       + 7 * Number(philosophy)
+    );
+  };
+
+  const calculateWonderTotal = (wonders: Set<WonderKeys>): number => {
+    const wonderKeyToValueMap = {
+      appianWay: 3,
+      circusMaximus: 3,
+      colossus: 3,
+      greatLibrary: 4,
+      greatLighthouse: 4,
+      hangingGardens: 3,
+      mausoleum: 2,
+      piraeus: 2,
+      pyramids: 9,
+      sphinx: 6,
+      statueOfZeus: 3,
+      templeOfArtemis: 0,
+    };
+    return (
+      Array
+        .from(wonders)
+        .reduce(
+          (prevScore, wonderKey) => (
+            prevScore + wonderKeyToValueMap[wonderKey]
+          ),
+          0,
+        )
     );
   };
 
