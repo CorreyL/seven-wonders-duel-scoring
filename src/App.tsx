@@ -108,7 +108,9 @@ function App() {
 
   return (
     <>
-      <div>
+      <div
+        className="page-change"
+      >
         <button
           disabled={appPage === AppPages.WonderSelection}
           onClick={() => {changePage(-1)}}
