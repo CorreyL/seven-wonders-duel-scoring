@@ -115,7 +115,7 @@ function App() {
           disabled={appPage === AppPages.WonderSelection}
           onClick={() => {changePage(-1)}}
         >
-          Prev Page
+          Previous Page
         </button>
         <button
           disabled={appPage === AppPages.Results}
