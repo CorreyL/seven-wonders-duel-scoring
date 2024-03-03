@@ -1,6 +1,11 @@
+import { WonderKeys } from '../../shared.types';
 import './WonderGrid.css';
 
-function WonderGrid() {
+interface WonderGridProps {
+  wondersToRender: Set<WonderKeys>;
+}
+
+function WonderGrid({ wondersToRender }: WonderGridProps) {
   return (
     <div>
     </div>
