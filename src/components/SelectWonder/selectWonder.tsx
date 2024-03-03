@@ -26,6 +26,7 @@ function SelectWonder({
         onClick={() => {
           selectWonder(wonderKey);
         }}
+        draggable={false}
       />
       {
         wonderSet.has(wonderKey)
