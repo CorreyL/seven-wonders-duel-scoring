@@ -1,3 +1,3 @@
-import Wonder from "./Wonder";
+import Wonder from "./wonder";
 
 export default Wonder;
