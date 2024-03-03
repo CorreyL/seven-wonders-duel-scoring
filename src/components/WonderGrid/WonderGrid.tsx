@@ -7,7 +7,7 @@ interface WonderGridProps {
 
 function WonderGrid({ wondersToRender }: WonderGridProps) {
   return (
-    <div>
+    <div className="wonder-grid">
     </div>
   );
 }
