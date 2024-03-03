@@ -87,7 +87,9 @@ function Scoring({
   };
 
   return (
-    <div>
+    <div
+      className="scores"
+    >
       <Score
         title="Civilian"
         score={calculateDistinctScoreTotal(playerScores[currentPlayer].civilian)}
