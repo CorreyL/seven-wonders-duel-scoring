@@ -1,14 +1,16 @@
+const getImageUrl = (imageName: string) => new URL(imageName, import.meta.url).href;
+
 export default {
-  appianWay: '/src/assets/wonders/appianWay.png',
-  circusMaximus: '/src/assets/wonders/circusMaximus.png',
-  colossus: '/src/assets/wonders/colossus.png',
-  greatLibrary: '/src/assets/wonders/greatLibrary.png',
-  greatLighthouse: '/src/assets/wonders/greatLighthouse.png',
-  hangingGardens: '/src/assets/wonders/hangingGardens.png',
-  mausoleum: '/src/assets/wonders/mausoleum.png',
-  piraeus: '/src/assets/wonders/piraeus.png',
-  pyramids: '/src/assets/wonders/pyramids.png',
-  sphinx: '/src/assets/wonders/sphinx.png',
-  statueOfZeus: '/src/assets/wonders/statueOfZeus.png',
-  templeOfArtemis: '/src/assets/wonders/templeOfArtemis.png',
+  appianWay: getImageUrl('appianWay.png'),
+  circusMaximus: getImageUrl('circusMaximus.png'),
+  colossus: getImageUrl('colossus.png'),
+  greatLibrary: getImageUrl('greatLibrary.png'),
+  greatLighthouse: getImageUrl('greatLighthouse.png'),
+  hangingGardens: getImageUrl('hangingGardens.png'),
+  mausoleum: getImageUrl('mausoleum.png'),
+  piraeus: getImageUrl('piraeus.png'),
+  pyramids: getImageUrl('pyramids.png'),
+  sphinx: getImageUrl('sphinx.png'),
+  statueOfZeus: getImageUrl('statueOfZeus.png'),
+  templeOfArtemis: getImageUrl('templeOfArtemis.png'),
 };
