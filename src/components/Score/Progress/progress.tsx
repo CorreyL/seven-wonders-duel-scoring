@@ -64,6 +64,7 @@ function Progress() {
               typeof playerScore.progress[progressKey] === "boolean"
               && (
                 <input
+                  className="progress-input"
                   onChange={() => changeToggleableScore(progressKey)}
                   checked={playerScore.progress[progressKey] as boolean}
                   type="checkbox"
@@ -73,11 +74,21 @@ function Progress() {
             {
               typeof playerScore.progress[progressKey] === "number"
               && (
-                <input
-                  onChange={(e) => changeNumericScore(progressKey, Number(e.target.value))}
-                  value={playerScore.progress[progressKey] as number}
-                  inputMode="numeric"
-                />
+                <div>
+                  {
+                    /**
+                     * @todo Make this look nicer, and have an informational pop-up
+                     * justifying this indicator
+                     */
+                    `3 x `
+                  }
+                  <input
+                    className="progress-input"
+                    onChange={(e) => changeNumericScore(progressKey, Number(e.target.value))}
+                    value={playerScore.progress[progressKey] as number}
+                    inputMode="numeric"
+                  />
+                </div>
               )
             }
           </div>

@@ -34,6 +34,13 @@ function Coins() {
           onChange={(e) => changeScore(Number(e.target.value))}
           value={playerScore.coins}
         />
+        {
+          /**
+           * @todo Make this look nicer, and have an informational pop-up
+           * justifying this indicator
+           */
+          ` / 3`
+        }
       </div>
       <div className="coin-buttons">
         <img
