@@ -29,6 +29,14 @@ function Results({ playerScores }: ResultsProps) {
     wonders: calculateWonderTotal,
   };
 
+  const keyToRowTitle = {
+    guildBase: 'Guild',
+  };
+
+  function capitalizeFirstLetter(word: string) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
   return (
     <div>
     </div>
