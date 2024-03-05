@@ -1,6 +1,14 @@
+import {
+  PlayerScores,
+} from '../../shared.types';
+
 import './results.css';
 
-function Results() {
+interface ResultsProps {
+  playerScores: PlayerScores;
+}
+
+function Results({ playerScores }: ResultsProps) {
   return (
     <div>
     </div>

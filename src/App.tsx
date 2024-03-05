@@ -21,6 +21,7 @@ import {
   Scoring as ScoringPage,
 } from './pages';
 import { OwnedWondersContext } from './context/Wonders';
+import Results from './pages/Results';
 
 const ScoringFactory = (): Scoring => ({
   civilian: {
@@ -124,6 +125,14 @@ function App() {
             && (
               <ScoringPage
                 currentPlayer={currentPlayer}
+                playerScores={playerScores}
+              />
+            )
+          }
+          {
+            appPage === AppPages.Results
+            && (
+              <Results
                 playerScores={playerScores}
               />
             )
