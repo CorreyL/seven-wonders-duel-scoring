@@ -1,5 +1,7 @@
 import {
+  Player,
   PlayerScores,
+
 } from '../../shared.types';
 
 import {
@@ -39,6 +41,52 @@ function Results({ playerScores }: ResultsProps) {
 
   return (
     <div>
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <td>Player 1</td>
+            <td>Player 2</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            Object.keys(playerScores[Player.One]).map((key) => (
+              <tr
+                key={`${key}-table-row`}
+              >
+                <td>
+                  {
+                    keyToRowTitle[key as keyof typeof keyToRowTitle]
+                    || capitalizeFirstLetter(key)
+                  }
+                </td>
+                <td>
+                  {
+                    // @ts-expect-error @todo Need to figure out how to properly
+                    // allow each defined type in Scoring to be passed as a
+                    // method parameter
+                    keyToScoringMethodMapping[key as keyof typeof keyToScoringMethodMapping](playerScores[Player.One][key as ScoringKeys])
+                  }
+                </td>
+                <td>
+                  {
+                    // @ts-expect-error @todo Need to figure out how to properly
+                    // allow each defined type in Scoring to be passed as a
+                    // method parameter
+                    keyToScoringMethodMapping[key as keyof typeof keyToScoringMethodMapping](playerScores[Player.Two][key as ScoringKeys])
+                  }
+                </td>
+              </tr>
+            ))
+          }
+          <tr>
+            <td>Total</td>
+            <td>{calculateTotalScore(playerScores, Player.One)}</td>
+            <td>{calculateTotalScore(playerScores, Player.Two)}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
