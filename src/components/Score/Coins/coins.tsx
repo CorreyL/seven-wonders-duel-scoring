@@ -31,6 +31,7 @@ function Coins() {
         <input
           type="search"
           inputMode="numeric"
+          className="coins-input"
           onChange={(e) => changeScore(Number(e.target.value))}
           value={playerScore.coins}
         />

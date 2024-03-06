@@ -4,6 +4,11 @@
   transition: filter 300ms;
 }
 
+.coins-input {
+  width: 7em;
+  padding: 1em;
+}
+
 .coin:active {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
