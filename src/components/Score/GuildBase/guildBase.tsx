@@ -63,7 +63,7 @@ function GuildBase() {
             key={`${guildKey}-guild-score`}
           >
             <img
-              className="guild-icon"
+              className={`guild-icon ${(guildKey === 'builders') ? "builder-guild-icon" : ""}`}
               src={guildToIconMapping[guildKey as keyof typeof guildToIconMapping]}
               alt={`${guildKey}-guild-icon`}
             />
@@ -77,7 +77,7 @@ function GuildBase() {
             }
             {
               guildKey === 'builders'
-              && `2 x `
+              && '2x'
             }
             <input
               inputMode="numeric"
