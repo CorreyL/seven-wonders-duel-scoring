@@ -20,6 +20,9 @@ interface ResultsProps {
 }
 
 function Results({ playerScores }: ResultsProps) {
+  const playerOneTotalScore = calculateTotalScore(playerScores, Player.One);
+  const playerTwoTotalScore = calculateTotalScore(playerScores, Player.Two);
+
   const keyToScoringMethodMapping = {
     civilian: calculateDistinctScoreTotal,
     coins: calculateCoinsTotal,
@@ -84,8 +87,16 @@ function Results({ playerScores }: ResultsProps) {
           }
           <tr>
             <td>Total</td>
-            <td>{calculateTotalScore(playerScores, Player.One)}</td>
-            <td>{calculateTotalScore(playerScores, Player.Two)}</td>
+            <td
+              className={`${(playerOneTotalScore > playerTwoTotalScore) ? "total-winner" : ""}`}
+            >
+              {playerOneTotalScore}
+            </td>
+            <td
+              className={`${(playerTwoTotalScore > playerOneTotalScore) ? "total-winner" : ""}`}
+            >
+              {playerTwoTotalScore}
+            </td>
           </tr>
         </tbody>
       </table>
