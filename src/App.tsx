@@ -107,32 +107,36 @@ function App() {
     });
   };
 
+  const changePageComponent = (): JSX.Element => (
+    <div
+      className="page-change"
+    >
+      <button
+        disabled={appPage === AppPages.WonderSelection}
+        onClick={() => {changePage(-1)}}
+      >
+        Previous Page
+      </button>
+      <button
+        disabled={
+          appPage === AppPages.Results
+          || (
+            // If the player hasn't selected 4 wonders, they cannot progress
+            // to the Scoring page
+            appPage === AppPages.WonderSelection
+            && playerOwnedWonders[currentPlayer].size < 4
+          )
+        }
+        onClick={() => {changePage(1)}}
+      >
+        Next Page
+      </button>
+    </div>
+  );
+
   return (
     <>
-      <div
-        className="page-change"
-      >
-        <button
-          disabled={appPage === AppPages.WonderSelection}
-          onClick={() => {changePage(-1)}}
-        >
-          Previous Page
-        </button>
-        <button
-          disabled={
-            appPage === AppPages.Results
-            || (
-              // If the player hasn't selected 4 wonders, they cannot progress
-              // to the Scoring page
-              appPage === AppPages.WonderSelection
-              && playerOwnedWonders[currentPlayer].size < 4
-            )
-          }
-          onClick={() => {changePage(1)}}
-        >
-          Next Page
-        </button>
-      </div>
+      {changePageComponent()}
       {
         appPage !== AppPages.Results
         && (
@@ -167,6 +171,12 @@ function App() {
           }
         </PlayerScoringContext.Provider>
       </OwnedWondersContext.Provider>
+      {
+        // Even on mobile devices, the results page takes up the whole screen,
+        // and users won't need to scroll to the bottom of the results page
+        appPage !== AppPages.Results
+        && changePageComponent()
+      }
     </>
   );
 }
