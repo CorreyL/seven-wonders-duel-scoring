@@ -1,5 +1,10 @@
+:root {
+  --maximum-width: 30em;
+}
+
+
 #root {
-  max-width: 30em;
+  max-width: var(--maximum-width);
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
