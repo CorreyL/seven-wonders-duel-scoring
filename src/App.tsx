@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import {
+  useEffect,
+  useState,
+} from 'react'
 import './App.css'
 
 import {
@@ -77,6 +80,16 @@ function App() {
   const changePlayer = (): void => {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
   };
+
+  useEffect(() => {
+    if (playerOwnedWonders[currentPlayer].size < 4) {
+      /**
+       * @todo Add a modal indicating why the page automatically went
+       * back to Wonder selection
+       */
+      setAppPage(AppPages.WonderSelection);
+    }
+  }, [currentPlayer, playerOwnedWonders]);
 
   const getCurrentPlayerContext = (): ScoringContext => {
     return ({
