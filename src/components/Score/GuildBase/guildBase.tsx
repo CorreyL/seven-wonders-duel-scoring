@@ -75,6 +75,10 @@ function GuildBase() {
                * components
                */
             }
+            {
+              guildKey === 'builders'
+              && `2 x `
+            }
             <input
               inputMode="numeric"
               onFocus={() => {

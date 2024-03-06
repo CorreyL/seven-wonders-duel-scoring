@@ -23,7 +23,9 @@ const calculateCoinsTotal = (coins: number): number => {
 const calculateGuildBaseTotal = (guildBaseScores: GuildBaseScores): number => {
   return Object.keys(guildBaseScores).reduce(
     (partialSum: number, key: string) => (
-      (guildBaseScores[key]) + partialSum
+      (key === 'builders')
+        ? (guildBaseScores[key] * 2) + partialSum
+        : (guildBaseScores[key]) + partialSum
     ),
     0,
   );
