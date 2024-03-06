@@ -40,7 +40,9 @@ function Results({ playerScores }: ResultsProps) {
   }
 
   return (
-    <div>
+    <div
+      className="results-table"
+    >
       <table>
         <thead>
           <tr>
