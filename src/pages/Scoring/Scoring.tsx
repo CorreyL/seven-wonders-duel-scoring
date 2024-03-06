@@ -46,7 +46,11 @@ function Scoring({
          * components
          */
       }
-      <div>Total Score: {calculateTotalScore(playerScores, currentPlayer)}</div>
+      <div
+        className="score-bar"
+      >
+        Total Score: {calculateTotalScore(playerScores, currentPlayer)}
+      </div>
       <Score
         title="Civilian"
         score={calculateDistinctScoreTotal(playerScores[currentPlayer].civilian)}
@@ -87,7 +91,6 @@ function Scoring({
         score={calculateWonderTotal(playerScores[currentPlayer].wonders)}
         ScoreComponent={Wonder}
       />
-      <div>Total Score: {calculateTotalScore(playerScores, currentPlayer)}</div>
     </div>
   );
 }
