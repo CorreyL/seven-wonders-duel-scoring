@@ -133,8 +133,15 @@ function App() {
           Next Page
         </button>
       </div>
-      <p>Current Player: {currentPlayer}</p>
-      <button onClick={changePlayer}>Change Player</button>
+      {
+        appPage !== AppPages.Results
+        && (
+          <div>
+            <p>Current Player: {currentPlayer}</p>
+            <button onClick={changePlayer}>Change Player</button>
+          </div>
+        )
+      }
       <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>
         <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
           {
