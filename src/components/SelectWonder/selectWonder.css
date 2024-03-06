@@ -3,12 +3,13 @@
 }
 
 .select-wonder-image {
-  height: 9em;
+  max-width: calc(var(--maximum-width) / 2.1);
 }
 
 @media (max-width: 535px) {
   .select-wonder-image {
-    height: 15em;
+    flex: 1;
+    max-width: var(--maximum-width);
   }
 }
 
