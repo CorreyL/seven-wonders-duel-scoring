@@ -1,4 +1,7 @@
 import {
+  useEffect,
+} from 'react';
+import {
   Player,
   PlayerScores,
 } from '../../shared.types';
@@ -33,6 +36,10 @@ function Scoring({
   currentPlayer,
   playerScores,
 }: ScoringProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div
       className="scores"
