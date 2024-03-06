@@ -119,7 +119,15 @@ function App() {
           Previous Page
         </button>
         <button
-          disabled={appPage === AppPages.Results}
+          disabled={
+            appPage === AppPages.Results
+            || (
+              // If the player hasn't selected 4 wonders, they cannot progress
+              // to the Scoring page
+              appPage === AppPages.WonderSelection
+              && playerOwnedWonders[currentPlayer].size < 4
+            )
+          }
           onClick={() => {changePage(1)}}
         >
           Next Page
