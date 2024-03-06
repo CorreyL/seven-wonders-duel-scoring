@@ -9,7 +9,7 @@
 @media (max-width: 535px) {
   .select-wonder-image {
     flex: 1;
-    max-width: var(--maximum-width);
+    max-width: calc(var(--maximum-width) / 3.1);
   }
 }
 
