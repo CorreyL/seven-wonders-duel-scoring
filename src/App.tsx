@@ -5,6 +5,7 @@ import {
 import './App.css'
 
 import {
+  ActiveExpansions,
   AppPages,
   Player,
   PlayerScores,
@@ -64,6 +65,10 @@ const ScoringFactory = (): Scoring => ({
 
 function App() {
   const [ appPage, setAppPage ] = useState<number>(AppPages.WonderSelection);
+  const [ activeExpansions, setActiveExpansions ] = useState<ActiveExpansions>({
+    agora: false,
+    pantheon: false,
+  });
   const [ currentPlayer, setCurrentPlayer ] = useState<Player>(Player.One);
   const [ playerScores, setPlayerScores ] = useState<PlayerScores>({
     [Player.One]: ScoringFactory(),
@@ -147,31 +152,33 @@ function App() {
           </div>
         )
       }
-      <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>
-        <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
-          {
-            appPage === AppPages.WonderSelection
-            && <OwnedWonders/>
-          }
-          {
-            appPage === AppPages.Scoring
-            && (
-              <ScoringPage
-                currentPlayer={currentPlayer}
-                playerScores={playerScores}
-              />
-            )
-          }
-          {
-            appPage === AppPages.Results
-            && (
-              <Results
-                playerScores={playerScores}
-              />
-            )
-          }
-        </PlayerScoringContext.Provider>
-      </OwnedWondersContext.Provider>
+      <ActivatedExpansionsContext.Provider value={{activeExpansions, setActiveExpansions}}>
+        <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>
+          <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
+            {
+              appPage === AppPages.WonderSelection
+              && <OwnedWonders/>
+            }
+            {
+              appPage === AppPages.Scoring
+              && (
+                <ScoringPage
+                  currentPlayer={currentPlayer}
+                  playerScores={playerScores}
+                />
+              )
+            }
+            {
+              appPage === AppPages.Results
+              && (
+                <Results
+                  playerScores={playerScores}
+                />
+              )
+            }
+          </PlayerScoringContext.Provider>
+        </OwnedWondersContext.Provider>
+      </ActivatedExpansionsContext.Provider>
       {
         // Even on mobile devices, the results page takes up the whole screen,
         // and users won't need to scroll to the bottom of the results page
