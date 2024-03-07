@@ -16,14 +16,15 @@ import {
 } from './shared.types';
 
 import {
+  ActivatedExpansionsContext,
+  OwnedWondersContext,
   PlayerScoringContext,
-} from './context/Scoring';
+} from './context';
 
 import {
   OwnedWonders,
   Scoring as ScoringPage,
 } from './pages';
-import { OwnedWondersContext } from './context/Wonders';
 import Results from './pages/Results';
 
 const ScoringFactory = (): Scoring => ({
