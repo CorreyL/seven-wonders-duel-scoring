@@ -87,3 +87,13 @@ export interface ScoringContext {
   playerScore: Scoring;
   setPlayerScores: React.Dispatch<React.SetStateAction<PlayerScores>>;
 }
+
+export interface ActiveExpansions {
+  agora: boolean;
+  pantheon: boolean;
+}
+
+export interface ExpansionsContext {
+  activeExpansions: ActiveExpansions;
+  setActiveExpansions: React.Dispatch<React.SetStateAction<ActiveExpansions>>;
+}
