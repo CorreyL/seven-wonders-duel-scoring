@@ -1,4 +1,5 @@
 export enum AppPages {
+  ExpansionSelection = 0,
   WonderSelection = 1,
   Scoring = 2,
   Results = 3,
