@@ -23,6 +23,7 @@ import {
 } from './context';
 
 import {
+  Expansions,
   OwnedWonders,
   Scoring as ScoringPage,
 } from './pages';
@@ -64,7 +65,7 @@ const ScoringFactory = (): Scoring => ({
 });
 
 function App() {
-  const [ appPage, setAppPage ] = useState<number>(AppPages.WonderSelection);
+  const [ appPage, setAppPage ] = useState<number>(AppPages.ExpansionSelection);
   const [ activeExpansions, setActiveExpansions ] = useState<ActiveExpansions>({
     agora: false,
     pantheon: false,
@@ -88,14 +89,17 @@ function App() {
   };
 
   useEffect(() => {
-    if (playerOwnedWonders[currentPlayer].size < 4) {
+    if (
+      appPage !== AppPages.ExpansionSelection
+      && playerOwnedWonders[currentPlayer].size < 4
+    ) {
       /**
        * @todo Add a modal indicating why the page automatically went
        * back to Wonder selection
        */
       setAppPage(AppPages.WonderSelection);
     }
-  }, [currentPlayer, playerOwnedWonders]);
+  }, [appPage, currentPlayer, playerOwnedWonders]);
 
   const getCurrentPlayerContext = (): ScoringContext => {
     return ({
@@ -118,7 +122,7 @@ function App() {
       className="page-change"
     >
       <button
-        disabled={appPage === AppPages.WonderSelection}
+        disabled={appPage === AppPages.ExpansionSelection}
         onClick={() => {changePage(-1)}}
       >
         Previous Page
@@ -144,7 +148,7 @@ function App() {
     <>
       {changePageComponent()}
       {
-        appPage !== AppPages.Results
+        ![AppPages.Results, AppPages.ExpansionSelection].includes(appPage)
         && (
           <div>
             <p>Current Player: {currentPlayer}</p>
@@ -155,6 +159,10 @@ function App() {
       <ActivatedExpansionsContext.Provider value={{activeExpansions, setActiveExpansions}}>
         <OwnedWondersContext.Provider value={getCurrentPlayerOwnedWondersContext()}>
           <PlayerScoringContext.Provider value={getCurrentPlayerContext()}>
+            {
+              appPage === AppPages.ExpansionSelection
+              && <Expansions/>
+            }
             {
               appPage === AppPages.WonderSelection
               && <OwnedWonders/>
