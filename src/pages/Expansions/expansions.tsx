@@ -8,7 +8,7 @@ function Expansion() {
   return (
     <div>
       <img src={Base}/>
-      <img src={Agora}/>
+      <img className="disabled-expansion" src={Agora}/>
       <img src={Pantheon}/>
     </div>
   );
