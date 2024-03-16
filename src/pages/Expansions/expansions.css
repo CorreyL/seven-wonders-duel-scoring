@@ -1,3 +1,7 @@
+.expansions > img {
+  height: 30em;
+}
+
 .disabled-expansion {
   opacity: 0.2;
 }

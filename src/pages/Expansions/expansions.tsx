@@ -6,7 +6,7 @@ import './expansions.css';
 
 function Expansion() {
   return (
-    <div>
+    <div className="expansions">
       <img src={Base}/>
       <img className="disabled-expansion" src={Agora}/>
       <img src={Pantheon}/>
