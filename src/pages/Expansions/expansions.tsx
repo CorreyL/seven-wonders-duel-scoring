@@ -1,4 +1,4 @@
-import './expansion.css';
+import './expansions.css';
 
 function Expansion() {
   return (
