@@ -19,7 +19,6 @@ function Expansion() {
   return (
     <div className="expansions">
       <img src={Base}/>
-      <img className="disabled-expansion" src={Agora}/>
       <div className="select-expansion-container">
         <img
           onClick={() => {setActiveExpansions((prevActiveExpansions) => ({
@@ -33,6 +32,7 @@ function Expansion() {
           && <div className="overlay"></div>
         }
       </div>
+      <img className="disabled-expansion" src={Agora}/>
     </div>
   );
 }
