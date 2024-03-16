@@ -1,3 +1,7 @@
+.select-expansion-container {
+  position: relative;
+}
+
 .expansions > img {
   height: 30em;
 }
