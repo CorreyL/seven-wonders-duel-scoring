@@ -1,8 +1,12 @@
+.base-game-image {
+  height: 15em;
+}
+
 .select-expansion-container {
   position: relative;
 }
 
-.expansions > img {
+.expansion-image {
   height: 30em;
 }
 

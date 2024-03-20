@@ -17,25 +17,28 @@ function Expansion() {
   } = useContext(ActivatedExpansionsContext);
 
   return (
-    <div className="expansions">
+    <div>
       <div>
         Select any applicable Expansions used for the game being scored
       </div>
-      <img src={Base}/>
-      <div className="select-expansion-container">
-        <img
-          onClick={() => {setActiveExpansions((prevActiveExpansions) => ({
-            ...prevActiveExpansions,
-            pantheon: !prevActiveExpansions.pantheon,
-          }))}}
-          src={Pantheon}
-        />
-        {
-          activeExpansions.pantheon
-          && <div className="overlay"></div>
-        }
+      <img className="base-game-image" src={Base}/>
+      <div className="expansions">
+        <div className="select-expansion-container">
+          <img
+            className="expansion-image"
+            onClick={() => {setActiveExpansions((prevActiveExpansions) => ({
+              ...prevActiveExpansions,
+              pantheon: !prevActiveExpansions.pantheon,
+            }))}}
+            src={Pantheon}
+          />
+          {
+            activeExpansions.pantheon
+            && <div className="overlay"></div>
+          }
+        </div>
+        <img className="expansion-image disabled-expansion" src={Agora}/>
       </div>
-      <img className="disabled-expansion" src={Agora}/>
     </div>
   );
 }
