@@ -17,7 +17,7 @@ function Expansion() {
   } = useContext(ActivatedExpansionsContext);
 
   return (
-    <div>
+    <div className="expansion-selection">
       <div>
         Select any applicable Expansions used for the game being scored
       </div>

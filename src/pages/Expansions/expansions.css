@@ -1,3 +1,10 @@
+.expansion-selection {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1em;
+}
+
 .base-game-image {
   height: 15em;
 }
