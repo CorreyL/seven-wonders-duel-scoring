@@ -22,6 +22,21 @@ function Expansion() {
       <div>
         Select any applicable Expansions used for the game being scored
       </div>
+      <div>
+        Expansions Selected:
+        {
+          (!activeExpansions.pantheon && !activeExpansions.agora)
+          && <span> None</span>
+        }
+        {
+          (activeExpansions.pantheon && !activeExpansions.agora)
+          && <span> Pantheon</span>
+        }
+        {
+          (activeExpansions.pantheon && activeExpansions.agora)
+          && <span> Pantheon + Agora</span>
+        }
+      </div>
       <img className="base-game-image" src={Base}/>
       <img src={PlusSymbol}/>
       <div className="expansions">
