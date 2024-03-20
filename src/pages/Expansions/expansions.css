@@ -16,6 +16,12 @@
   height: 30em;
 }
 
+@media (max-width: 535px) {
+  .expansion-image {
+    height: 18em;
+  }
+}
+
 .disabled-expansion {
   opacity: 0.2;
 }
