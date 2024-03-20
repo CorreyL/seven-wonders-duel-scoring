@@ -6,6 +6,11 @@
   position: relative;
 }
 
+.expansions {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .expansion-image {
   height: 30em;
 }
