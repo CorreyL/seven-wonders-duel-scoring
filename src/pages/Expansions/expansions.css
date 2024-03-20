@@ -17,10 +17,11 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  gap: 0.5em;
 }
 
 .expansion-image {
-  height: 30em;
+  height: 29.5em;
 }
 
 @media (max-width: 535px) {
