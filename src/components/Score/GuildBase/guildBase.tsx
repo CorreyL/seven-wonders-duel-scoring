@@ -87,10 +87,13 @@ function GuildBase() {
               onChange={(e) => {
                 // @ts-expect-error e.nativeEvent does in-fact have a data key
                 const keyPressed = e.nativeEvent.data;
-                if (!keyPressed || isNaN(Number(keyPressed))) {
+                if (isNaN(Number(keyPressed))) {
                   return;
                 }
-                if (firstInput) {
+                // Doing a truthy check on keyPressed because backspace results
+                // in keyPressed being assigned to null, which will ultimately
+                // make the score a NaN if not checked
+                if (firstInput && keyPressed) {
                   e.target.value = String(keyPressed);
                   setFirstInput(false);
                 }
