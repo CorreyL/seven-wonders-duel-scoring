@@ -1,4 +1,8 @@
 import {
+  useContext,
+} from 'react';
+
+import {
   Player,
   PlayerScores,
 
@@ -13,6 +17,8 @@ import {
   calculateTotalScore,
 } from '../../utils';
 
+import { ActivatedExpansionsContext } from '../../context';
+
 import './results.css';
 
 interface ResultsProps {
@@ -20,6 +26,10 @@ interface ResultsProps {
 }
 
 function Results({ playerScores }: ResultsProps) {
+  const {
+    activeExpansions,
+  } = useContext(ActivatedExpansionsContext);
+
   const playerOneTotalScore = calculateTotalScore(playerScores, Player.One);
   const playerTwoTotalScore = calculateTotalScore(playerScores, Player.Two);
 
@@ -56,34 +66,39 @@ function Results({ playerScores }: ResultsProps) {
         </thead>
         <tbody>
           {
-            Object.keys(playerScores[Player.One]).map((key) => (
-              <tr
-                key={`${key}-table-row`}
-              >
-                <td>
-                  {
-                    keyToRowTitle[key as keyof typeof keyToRowTitle]
-                    || capitalizeFirstLetter(key)
-                  }
-                </td>
-                <td>
-                  {
-                    // @ts-expect-error @todo Need to figure out how to properly
-                    // allow each defined type in Scoring to be passed as a
-                    // method parameter
-                    keyToScoringMethodMapping[key as keyof typeof keyToScoringMethodMapping](playerScores[Player.One][key as ScoringKeys])
-                  }
-                </td>
-                <td>
-                  {
-                    // @ts-expect-error @todo Need to figure out how to properly
-                    // allow each defined type in Scoring to be passed as a
-                    // method parameter
-                    keyToScoringMethodMapping[key as keyof typeof keyToScoringMethodMapping](playerScores[Player.Two][key as ScoringKeys])
-                  }
-                </td>
-              </tr>
-            ))
+            Object.keys(playerScores[Player.One]).map((key) => {
+              if (activeExpansions.pantheon && key === 'guildBase') {
+                return null;
+              }
+              return (
+                <tr
+                  key={`${key}-table-row`}
+                >
+                  <td>
+                    {
+                      keyToRowTitle[key as keyof typeof keyToRowTitle]
+                      || capitalizeFirstLetter(key)
+                    }
+                  </td>
+                  <td>
+                    {
+                      // @ts-expect-error @todo Need to figure out how to properly
+                      // allow each defined type in Scoring to be passed as a
+                      // method parameter
+                      keyToScoringMethodMapping[key as keyof typeof keyToScoringMethodMapping](playerScores[Player.One][key as ScoringKeys])
+                    }
+                  </td>
+                  <td>
+                    {
+                      // @ts-expect-error @todo Need to figure out how to properly
+                      // allow each defined type in Scoring to be passed as a
+                      // method parameter
+                      keyToScoringMethodMapping[key as keyof typeof keyToScoringMethodMapping](playerScores[Player.Two][key as ScoringKeys])
+                    }
+                  </td>
+                </tr>
+              );
+            })
           }
           <tr>
             <td>Total</td>
