@@ -18,6 +18,9 @@ function Expansion() {
 
   return (
     <div className="expansions">
+      <div>
+        Select any applicable Expansions used for the game being scored
+      </div>
       <img src={Base}/>
       <div className="select-expansion-container">
         <img
