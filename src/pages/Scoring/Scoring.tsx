@@ -1,10 +1,13 @@
 import {
+  useContext,
   useEffect,
 } from 'react';
 import {
   Player,
   PlayerScores,
 } from '../../shared.types';
+
+import { ActivatedExpansionsContext } from '../../context';
 
 import {
   calculateDistinctScoreTotal,
@@ -36,6 +39,10 @@ function Scoring({
   currentPlayer,
   playerScores,
 }: ScoringProps) {
+  const {
+    activeExpansions,
+  } = useContext(ActivatedExpansionsContext);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -83,11 +90,16 @@ function Scoring({
         score={calculateDistinctScoreTotal(playerScores[currentPlayer].commercial)}
         ScoreComponent={Commercial}
       />
-      <Score
-        title="Guild"
-        score={calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)}
-        ScoreComponent={GuildBase}
-      />
+      {
+        !activeExpansions.pantheon
+        && (
+          <Score
+            title="Guild"
+            score={calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)}
+            ScoreComponent={GuildBase}
+          />
+        )
+      }
       <Score
         title="Progress"
         score={calculateProgressTokensTotal(playerScores[currentPlayer].progress)}
