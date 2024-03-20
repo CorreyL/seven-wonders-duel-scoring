@@ -1,0 +1,35 @@
+.expansion-selection {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1em;
+}
+
+.base-game-image {
+  height: 15em;
+}
+
+.select-expansion-container {
+  position: relative;
+}
+
+.expansions {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.expansion-image {
+  height: 29.5em;
+}
+
+@media (max-width: 535px) {
+  .expansion-image {
+    height: 18em;
+  }
+}
+
+.disabled-expansion {
+  opacity: 0.2;
+}
