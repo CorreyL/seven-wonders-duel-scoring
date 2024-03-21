@@ -77,6 +77,16 @@ function Scoring({
         score={calculateCoinsTotal(playerScores[currentPlayer].coins)}
         ScoreComponent={Coins}
       />
+      {
+        activeExpansions.pantheon
+        && (
+          <Score
+            title="Divinity"
+            score={calculateDivinityScores(playerScores[currentPlayer].divinity)}
+            ScoreComponent={Divinity}
+          />
+        )
+      }
       <Score
         title="Military"
         score={playerScores[currentPlayer].military}
@@ -99,16 +109,6 @@ function Scoring({
             title="Guild"
             score={calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)}
             ScoreComponent={GuildBase}
-          />
-        )
-      }
-      {
-        activeExpansions.pantheon
-        && (
-          <Score
-            title="Divinity"
-            score={calculateDivinityScores(playerScores[currentPlayer].divinity)}
-            ScoreComponent={Divinity}
           />
         )
       }
