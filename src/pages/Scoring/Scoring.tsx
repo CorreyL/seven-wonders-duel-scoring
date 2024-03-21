@@ -11,6 +11,7 @@ import { ActivatedExpansionsContext } from '../../context';
 
 import {
   calculateDistinctScoreTotal,
+  calculateDivinityScores,
   calculateCoinsTotal,
   calculateGuildBaseTotal,
   calculateProgressTokensTotal,
@@ -20,6 +21,7 @@ import {
 
 import Coins from '../../components/Score/Coins/coins';
 import Civilian from '../../components/Score/Civilian';
+import Divinity from '../../components/Score/Divinity';
 import GuildBase from '../../components/Score/GuildBase';
 import Military from '../../components/Score/Military';
 import Progress from '../../components/Score/Progress';
@@ -97,6 +99,16 @@ function Scoring({
             title="Guild"
             score={calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)}
             ScoreComponent={GuildBase}
+          />
+        )
+      }
+      {
+        activeExpansions.pantheon
+        && (
+          <Score
+            title="Divinity"
+            score={calculateDivinityScores(playerScores[currentPlayer].divinity)}
+            ScoreComponent={Divinity}
           />
         )
       }
