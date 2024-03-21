@@ -41,6 +41,10 @@ const ScoringFactory = (): Scoring => ({
   commercial: {
     3: 0,
   },
+  divinity: {
+    aphrodite: false,
+    astarte: 0,
+  },
   guildBase: {
     builders: 0,
     moneylenders: 0,

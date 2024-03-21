@@ -31,6 +31,12 @@ export interface GuildBaseScores {
   tactician: number;
 }
 
+export interface DivinityScores {
+  [key: string]: number | boolean;
+  aphrodite: boolean;
+  astarte: number;
+}
+
 export interface ProgressScores {
   [key: string]: boolean | number;
   agriculture: boolean;
@@ -59,6 +65,7 @@ export interface PlayerScores {
 export interface Scoring {
   civilian: DistinctScores;
   coins: number;
+  divinity: DivinityScores;
   commercial: DistinctScores;
   guildBase: GuildBaseScores;
   military: MilitaryScores;
