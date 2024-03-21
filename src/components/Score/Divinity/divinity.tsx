@@ -43,7 +43,7 @@ function Divinity() {
 
   return (
     <div>
-      <div>
+      <div className="divinity-selection">
         <img src={Aphrodite}/>
         <input
           onChange={changeAphroditeScore}

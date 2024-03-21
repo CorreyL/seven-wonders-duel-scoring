@@ -1,0 +1,14 @@
+.divinity-selection {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #BEBFC1;
+  background-image: linear-gradient(to bottom right, #676767 60%, #a6a6a6);
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.divinity-selection > img {
+  height: 20em;
+}
