@@ -10,21 +10,51 @@ import './divinity.css';
 
 function Divinity() {
   const {
+    currentPlayer,
     playerScore,
+    setPlayerScores,
   } = useContext(PlayerScoringContext);
+
+  const changeAphroditeScore = () => {
+    setPlayerScores((prevPlayerScore) => ({
+      ...prevPlayerScore,
+      [currentPlayer]: {
+        ...prevPlayerScore[currentPlayer],
+        divinity: {
+          ...prevPlayerScore[currentPlayer].divinity,
+          aphrodite: !prevPlayerScore[currentPlayer].divinity.aphrodite,
+        },
+      }
+    }));
+  };
+
+  const changeAstarteScore = (score: number) => {
+    setPlayerScores((prevPlayerScore) => ({
+      ...prevPlayerScore,
+      [currentPlayer]: {
+        ...prevPlayerScore[currentPlayer],
+        divinity: {
+          ...prevPlayerScore[currentPlayer].divinity,
+          astarte: score,
+        },
+      }
+    }));
+  };
 
   return (
     <div>
       <div>
         <img src={Aphrodite}/>
         <input
-          checked={playerScore.divinity.aphrodite}
+          onChange={changeAphroditeScore}
+          checked={playerScore.divinity.aphrodite as boolean}
           type="checkbox"
         />
       </div>
       <div className="divinity-selection">
         <img src={Astarte}/>
         <input
+          onChange={(e) => changeAstarteScore(Number(e.target.value))}
           value={playerScore.divinity.astarte}
           inputMode="numeric"
         />
