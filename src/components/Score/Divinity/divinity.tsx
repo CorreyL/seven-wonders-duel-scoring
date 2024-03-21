@@ -42,7 +42,7 @@ function Divinity() {
   };
 
   return (
-    <div>
+    <div className="divinity">
       <div className="divinity-selection">
         <img src={Aphrodite}/>
         <input
