@@ -1,5 +1,6 @@
 import {
   DistinctScores,
+  DivinityScores,
   GuildBaseScores,
   Player,
   PlayerScores,
@@ -18,6 +19,16 @@ const calculateDistinctScoreTotal = (distinctScores: DistinctScores): number => 
 
 const calculateCoinsTotal = (coins: number): number => {
   return Math.floor(coins / 3)
+};
+
+const calculateDivinityScores = (divinity: DivinityScores) => {
+  const {
+    aphrodite,
+    astarte,
+  } = divinity;
+
+  // aphrodite is a boolean value, and is worth 9 points if scored
+  return Number(aphrodite) * 9 + astarte;
 };
 
 const calculateGuildBaseTotal = (guildBaseScores: GuildBaseScores): number => {
@@ -78,6 +89,7 @@ const calculateTotalScore = (playerScores: PlayerScores, currentPlayer: Player):
     + playerScores[currentPlayer].military
     + calculateDistinctScoreTotal(playerScores[currentPlayer].science)
     + calculateDistinctScoreTotal(playerScores[currentPlayer].commercial)
+    + calculateDivinityScores(playerScores[currentPlayer].divinity)
     + calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)
     + calculateProgressTokensTotal(playerScores[currentPlayer].progress)
     + calculateWonderTotal(playerScores[currentPlayer].wonders)
@@ -86,6 +98,7 @@ const calculateTotalScore = (playerScores: PlayerScores, currentPlayer: Player):
 
 export {
   calculateDistinctScoreTotal,
+  calculateDivinityScores,
   calculateCoinsTotal,
   calculateGuildBaseTotal,
   calculateProgressTokensTotal,

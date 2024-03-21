@@ -1,5 +1,6 @@
 import {
   calculateDistinctScoreTotal,
+  calculateDivinityScores,
   calculateCoinsTotal,
   calculateGuildBaseTotal,
   calculateProgressTokensTotal,
@@ -9,6 +10,7 @@ import {
 
 export {
   calculateDistinctScoreTotal,
+  calculateDivinityScores,
   calculateCoinsTotal,
   calculateGuildBaseTotal,
   calculateProgressTokensTotal,
