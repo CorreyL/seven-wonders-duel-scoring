@@ -9,6 +9,7 @@ import {
 } from '../../shared.types';
 
 import {
+  calculateDivinityScores,
   calculateDistinctScoreTotal,
   calculateCoinsTotal,
   calculateGuildBaseTotal,
@@ -37,6 +38,7 @@ function Results({ playerScores }: ResultsProps) {
     civilian: calculateDistinctScoreTotal,
     coins: calculateCoinsTotal,
     commercial: calculateDistinctScoreTotal,
+    divinity: calculateDivinityScores,
     guildBase: calculateGuildBaseTotal,
     military: (value: number) => (value),
     progress: calculateProgressTokensTotal,
@@ -68,6 +70,9 @@ function Results({ playerScores }: ResultsProps) {
           {
             Object.keys(playerScores[Player.One]).map((key) => {
               if (activeExpansions.pantheon && key === 'guildBase') {
+                return null;
+              }
+              if (!activeExpansions.pantheon && key === 'divinity') {
                 return null;
               }
               return (
