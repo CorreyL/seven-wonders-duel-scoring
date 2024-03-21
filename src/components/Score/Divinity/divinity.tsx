@@ -46,6 +46,7 @@ function Divinity() {
       <div className="divinity-selection">
         <img src={Aphrodite}/>
         <input
+          className="divinity-input"
           onChange={changeAphroditeScore}
           checked={playerScore.divinity.aphrodite as boolean}
           type="checkbox"
@@ -54,6 +55,7 @@ function Divinity() {
       <div className="divinity-selection">
         <img src={Astarte}/>
         <input
+          className="divinity-input"
           onChange={(e) => changeAstarteScore(Number(e.target.value))}
           value={playerScore.divinity.astarte}
           inputMode="numeric"
