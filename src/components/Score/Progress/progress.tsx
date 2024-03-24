@@ -1,12 +1,16 @@
 import {
   useContext,
 } from 'react';
-import { PlayerScoringContext } from '../../../context/Scoring';
+import {
+  ActivatedExpansionsContext,
+  PlayerScoringContext,
+} from '../../../context';
 
 import './progress.css';
 
 import Agriculture from '/src/assets/progress-tokens/agriculture.png';
 import Mathematics from '/src/assets/progress-tokens/mathematics.png';
+import Mysticism from '/src/assets/progress-tokens/mysticism.png';
 import Philosophy from '/src/assets/progress-tokens/philosophy.png';
 
 function Progress() {
@@ -16,10 +20,15 @@ function Progress() {
     setPlayerScores,
   } = useContext(PlayerScoringContext);
 
+  const {
+    activeExpansions,
+  } = useContext(ActivatedExpansionsContext);
+
   const mapProgressKeysToIcons = {
     agriculture: Agriculture,
     philosophy: Philosophy,
     mathematics: Mathematics,
+    mysticism: Mysticism,
   };
 
   const changeToggleableScore = (progressKey: string): void => {
@@ -51,8 +60,14 @@ function Progress() {
   return (
     <div className="progress-score">
       {
-        Object.keys(mapProgressKeysToIcons).map((progressKey) => (
-          <div
+        Object.keys(mapProgressKeysToIcons).map((progressKey) => {
+          if (
+            progressKey === 'mysticism'
+            && !activeExpansions.pantheon
+          ) {
+            return null;
+          }
+          return (<div
             className="progress-score-row"
             key={`${progressKey}-icon`}
           >
@@ -92,7 +107,7 @@ function Progress() {
               )
             }
           </div>
-        ))
+        )})
       }
     </div>
   );
