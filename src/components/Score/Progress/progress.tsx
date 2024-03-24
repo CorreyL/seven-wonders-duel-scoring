@@ -57,6 +57,11 @@ function Progress() {
     }));
   };
 
+  const progressTokenNumericMultiplier = {
+    mathematics: 3,
+    mysticism: 2,
+  };
+
   return (
     <div className="progress-score">
       {
@@ -95,7 +100,7 @@ function Progress() {
                      * @todo Make this look nicer, and have an informational pop-up
                      * justifying this indicator
                      */
-                    `3 x `
+                    `${progressTokenNumericMultiplier[progressKey as keyof typeof progressTokenNumericMultiplier]} x `
                   }
                   <input
                     className="progress-input"
