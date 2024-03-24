@@ -46,11 +46,13 @@ const calculateProgressTokensTotal = (progress: ProgressScores): number => {
   const {
     agriculture,
     mathematics,
+    mysticism,
     philosophy,
   } = progress
   return (
     4 * Number(agriculture)
     + 3 * mathematics
+    + 2 * mysticism
     + 7 * Number(philosophy)
   );
 };
