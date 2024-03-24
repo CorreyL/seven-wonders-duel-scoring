@@ -71,7 +71,7 @@ const ScoringFactory = (): Scoring => ({
 });
 
 function App() {
-  const [ appPage, setAppPage ] = useState<number>(AppPages.WonderSelection);
+  const [ appPage, setAppPage ] = useState<number>(AppPages.ExpansionSelection);
   const [ activeExpansions, setActiveExpansions ] = useState<ActiveExpansions>({
     agora: false,
     pantheon: false,
@@ -128,7 +128,7 @@ function App() {
       className="page-change"
     >
       <button
-        disabled={appPage === AppPages.WonderSelection}
+        disabled={appPage === AppPages.ExpansionSelection}
         onClick={() => {changePage(-1)}}
       >
         Previous Page
