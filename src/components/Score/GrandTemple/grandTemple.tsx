@@ -24,12 +24,13 @@ function GrandTemple() {
 
   return (
     <div>
-      <div>
+      <div className="grand-temple-score-options">
         {
           possibleScores.map(
             (score: GrandTempleScores, idx: number) => (
               <button
                 key={`grand-temple-btn-${idx}`}
+                className="grand-temple-btn"
                 onClick={() => setGrandTempleScore(score)}
               >
                 {score}

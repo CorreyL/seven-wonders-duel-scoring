@@ -1,0 +1,12 @@
+.grand-temple-score-options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.grand-temple-btn {
+  background-color: #42579F;
+  background-image: linear-gradient(to bottom right, #42579F 50%, #1d2644);
+}
