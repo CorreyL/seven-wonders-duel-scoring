@@ -10,6 +10,8 @@ function GrandTemple() {
     setPlayerScores,
   } = useContext(PlayerScoringContext);
 
+  const possibleScores = [0, 5, 12, 21] as Array<GrandTempleScores>;
+
   const setGrandTempleScore = (score: GrandTempleScores) => {
     setPlayerScores((prevPlayerScores) => ({
       ...prevPlayerScores,
@@ -22,6 +24,20 @@ function GrandTemple() {
 
   return (
     <div>
+      <div>
+        {
+          possibleScores.map(
+            (score: GrandTempleScores, idx: number) => (
+              <button
+                key={`grand-temple-btn-${idx}`}
+                onClick={() => setGrandTempleScore(score)}
+              >
+                {score}
+              </button>
+            )
+          )
+        }
+      </div>
     </div>
   );
 }
