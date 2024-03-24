@@ -22,6 +22,7 @@ import {
 import Coins from '../../components/Score/Coins/coins';
 import Civilian from '../../components/Score/Civilian';
 import Divinity from '../../components/Score/Divinity';
+import GrandTemple from '../../components/Score/GrandTemple';
 import GuildBase from '../../components/Score/GuildBase';
 import Military from '../../components/Score/Military';
 import Progress from '../../components/Score/Progress';
@@ -102,6 +103,16 @@ function Scoring({
         score={calculateDistinctScoreTotal(playerScores[currentPlayer].commercial)}
         ScoreComponent={Commercial}
       />
+      {
+        activeExpansions.pantheon
+        && (
+          <Score
+            title="Grand Temple"
+            score={playerScores[currentPlayer].grandTemple}
+            ScoreComponent={GrandTemple}
+          />
+        )
+      }
       {
         !activeExpansions.pantheon
         && (
