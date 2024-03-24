@@ -90,6 +90,7 @@ const calculateTotalScore = (playerScores: PlayerScores, currentPlayer: Player):
     + calculateDistinctScoreTotal(playerScores[currentPlayer].science)
     + calculateDistinctScoreTotal(playerScores[currentPlayer].commercial)
     + calculateDivinityScores(playerScores[currentPlayer].divinity)
+    + playerScores[currentPlayer].grandTemple
     + calculateGuildBaseTotal(playerScores[currentPlayer].guildBase)
     + calculateProgressTokensTotal(playerScores[currentPlayer].progress)
     + calculateWonderTotal(playerScores[currentPlayer].wonders)
