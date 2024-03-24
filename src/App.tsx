@@ -45,6 +45,7 @@ const ScoringFactory = (): Scoring => ({
     aphrodite: false,
     astarte: 0,
   },
+  grandTemple: 0,
   guildBase: {
     builders: 0,
     moneylenders: 0,

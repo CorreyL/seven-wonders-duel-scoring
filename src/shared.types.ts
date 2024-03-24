@@ -69,6 +69,7 @@ export interface Scoring {
   coins: number;
   divinity: DivinityScores;
   commercial: DistinctScores;
+  grandTemple: GrandTempleScores;
   guildBase: GuildBaseScores;
   military: MilitaryScores;
   science: DistinctScores;
