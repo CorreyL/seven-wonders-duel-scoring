@@ -49,6 +49,7 @@ export interface ProgressScores {
 export type WonderKeys = 'appianWay'
   | 'circusMaximus'
   | 'colossus'
+  | 'divineTheater'
   | 'greatLibrary'
   | 'greatLighthouse'
   | 'hangingGardens'

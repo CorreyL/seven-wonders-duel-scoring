@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { WonderKeys } from '../../shared.types';
+import { ActivatedExpansionsContext } from '../../context';
 import SelectWonder from '../SelectWonder';
 import wonderKeyToImagePath from '../../assets/wonders/wonderKeyToImagePath';
 import './WonderGrid.css';
@@ -14,10 +16,20 @@ function WonderGrid({
   wonderSet,
   wondersToRender
 }: WonderGridProps) {
+  const {
+    activeExpansions,
+  } = useContext(ActivatedExpansionsContext);
+
   return (
     <div className="wonder-grid">
       {
         Array.from(wondersToRender.values()).map((wonderKey, idx) => {
+          if (
+            wonderKey === 'divineTheater' as WonderKeys
+            && !activeExpansions.pantheon
+          ) {
+            return null;
+          }
           return (
             <SelectWonder
               key={`select-wonder-${wonderKey}-${idx}`}

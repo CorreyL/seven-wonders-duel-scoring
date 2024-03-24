@@ -60,6 +60,7 @@ const calculateWonderTotal = (wonders: Set<WonderKeys>): number => {
     appianWay: 3,
     circusMaximus: 3,
     colossus: 3,
+    divineTheater: 2,
     greatLibrary: 4,
     greatLighthouse: 4,
     hangingGardens: 3,

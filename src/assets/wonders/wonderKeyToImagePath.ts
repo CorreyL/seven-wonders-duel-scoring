@@ -1,6 +1,7 @@
 import appianWay from './appianWay.png';
 import circusMaximus from './circusMaximus.png';
 import colossus from './colossus.png';
+import divineTheater from './divineTheater.png';
 import greatLibrary from './greatLibrary.png';
 import greatLighthouse from './greatLighthouse.png';
 import hangingGardens from './hangingGardens.png';
@@ -15,6 +16,7 @@ export default {
   appianWay,
   circusMaximus,
   colossus,
+  divineTheater,
   greatLibrary,
   greatLighthouse,
   hangingGardens,
