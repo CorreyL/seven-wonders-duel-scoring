@@ -69,6 +69,13 @@ function Results({ playerScores }: ResultsProps) {
         <tbody>
           {
             Object.keys(playerScores[Player.One]).map((key) => {
+              if (!keyToScoringMethodMapping[key as keyof typeof keyToRowTitle]) {
+                console.error(
+                  `${key} is not set in keyToScoringMethodMapping\n`
+                  + `${key} will not be rendered in results table`
+                );
+                return;
+              }
               if (activeExpansions.pantheon && key === 'guildBase') {
                 return null;
               }
