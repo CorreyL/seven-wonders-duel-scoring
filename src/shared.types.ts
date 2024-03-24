@@ -43,6 +43,7 @@ export interface ProgressScores {
   [key: string]: boolean | number;
   agriculture: boolean;
   mathematics: number;
+  mysticism: number;
   philosophy: boolean;
 }
 

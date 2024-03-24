@@ -59,6 +59,7 @@ const ScoringFactory = (): Scoring => ({
   progress: {
     agriculture: false,
     mathematics: 0,
+    mysticism: 0,
     philosophy: false,
   },
   science: {
