@@ -41,6 +41,15 @@ function Expansion() {
       <img src={PlusSymbol}/>
       <div className="expansions">
         <div className="select-expansion-container">
+          {
+            /**
+             * @todo If Wonders or Scoring has been started, reset all
+             * selections and scoring if expansions change, to ensure the app
+             * does not fall into a state where, for example, the Pantheon
+             * specific Wonder is selected, but then the user has subsequently
+             * de-selected the Pantheon expansion
+             */
+          }
           <img
             className="expansion-image"
             onClick={() => {setActiveExpansions((prevActiveExpansions) => ({
