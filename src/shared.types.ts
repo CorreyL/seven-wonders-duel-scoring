@@ -12,6 +12,8 @@ export enum Player {
 
 export type MilitaryScores = 0 | 2 | 5 | 10;
 
+export type GrandTempleScores = 0 | 5 | 12 | 21;
+
 /**
  * Interface for Scoring types that only have a limited number of score values
  * that can be added to the total
