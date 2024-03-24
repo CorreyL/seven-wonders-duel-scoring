@@ -39,6 +39,7 @@ function Results({ playerScores }: ResultsProps) {
     coins: calculateCoinsTotal,
     commercial: calculateDistinctScoreTotal,
     divinity: calculateDivinityScores,
+    grandTemple: (value: number) => (value),
     guildBase: calculateGuildBaseTotal,
     military: (value: number) => (value),
     progress: calculateProgressTokensTotal,
@@ -48,6 +49,7 @@ function Results({ playerScores }: ResultsProps) {
 
   const keyToRowTitle = {
     guildBase: 'Guild',
+    grandTemple: 'Grand Temple'
   };
 
   function capitalizeFirstLetter(word: string) {
