@@ -6,13 +6,13 @@ import { PlayerScoringContext } from '../../../context/Scoring';
 
 import './guildBase.css';
 
-import buildersGuildIcon from '/src/assets/guild-card-icons/builders-guild.png';
-import magistratesIcon from '/src/assets/guild-card-icons/magistrates-guild.png';
-import merchantsIcon from '/src/assets/guild-card-icons/merchants-guild.png';
-import moneylendersIcon from '/src/assets/guild-card-icons/moneylenders-guild.png';
-import scientistsIcon from '/src/assets/guild-card-icons/scientists-guild.png';
-import shipownersIcon from '/src/assets/guild-card-icons/shipowners-guild.png';
-import tacticiansIcon from '/src/assets/guild-card-icons/tacticians-guild.png';
+import buildersGuildIcon from '/src/assets/guild-card-icons/builders-guild.webp';
+import magistratesIcon from '/src/assets/guild-card-icons/magistrates-guild.webp';
+import merchantsIcon from '/src/assets/guild-card-icons/merchants-guild.webp';
+import moneylendersIcon from '/src/assets/guild-card-icons/moneylenders-guild.webp';
+import scientistsIcon from '/src/assets/guild-card-icons/scientists-guild.webp';
+import shipownersIcon from '/src/assets/guild-card-icons/shipowners-guild.webp';
+import tacticiansIcon from '/src/assets/guild-card-icons/tacticians-guild.webp';
 
 function GuildBase() {
   const [ firstInput, setFirstInput ] = useState(true);
