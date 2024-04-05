@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import './App.css'
@@ -94,6 +95,31 @@ function App() {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
   };
 
+  const connection = useRef();
+
+  useEffect(() => {
+    const socket = new WebSocket("ws://127.0.0.1:8080")
+
+    // Connection opened
+    socket.addEventListener("open", (event) => {
+      // @ts-ignore
+      connection.current = socket;
+      socket.send(JSON.stringify(playerScores));
+    });
+
+    // Listen for messages
+    socket.addEventListener("message", (event) => {
+      console.log("Message from server ", event.data)
+    });
+
+    return () => {
+      // @ts-ignore
+      if (connection.current) {
+        connection.current.close();
+      }
+    };
+  }, []);
+
   useEffect(() => {
     if (
       appPage !== AppPages.ExpansionSelection
@@ -106,6 +132,17 @@ function App() {
       setAppPage(AppPages.WonderSelection);
     }
   }, [appPage, currentPlayer, playerOwnedWonders]);
+
+  useEffect(() => {
+    console.log('broadcast change');
+    // @ts-expect-error Test
+    console.log(connection.current);
+    // @ts-expect-error Test
+    if (connection.current) {
+      // @ts-expect-error Test
+      connection.current.send(JSON.stringify(playerScores));
+    }
+  }, [playerScores]);
 
   const getCurrentPlayerContext = (): ScoringContext => {
     return ({
