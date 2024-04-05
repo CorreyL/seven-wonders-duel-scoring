@@ -21,7 +21,15 @@ function CursorAgnosticInput({
   const [ firstInput, setFirstInput ] = useState(true);
 
   return (
-    <input/>
+    <input
+      inputMode="numeric"
+      onFocus={() => {
+        setFirstInput(true);
+      }}
+      onBlur={() => {
+        setFirstInput(true);
+      }}
+    />
   );
 }
 
