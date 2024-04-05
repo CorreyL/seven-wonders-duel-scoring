@@ -1,16 +1,16 @@
-import appianWay from './appianWay.png';
-import circusMaximus from './circusMaximus.png';
-import colossus from './colossus.png';
-import divineTheater from './divineTheater.png';
-import greatLibrary from './greatLibrary.png';
-import greatLighthouse from './greatLighthouse.png';
-import hangingGardens from './hangingGardens.png';
-import mausoleum from './mausoleum.png';
-import piraeus from './piraeus.png';
-import pyramids from './pyramids.png';
-import sphinx from './sphinx.png';
-import statueOfZeus from './statueOfZeus.png';
-import templeOfArtemis from './templeOfArtemis.png';
+import appianWay from './appianWay.webp';
+import circusMaximus from './circusMaximus.webp';
+import colossus from './colossus.webp';
+import divineTheater from './divineTheater.webp';
+import greatLibrary from './greatLibrary.webp';
+import greatLighthouse from './greatLighthouse.webp';
+import hangingGardens from './hangingGardens.webp';
+import mausoleum from './mausoleum.webp';
+import piraeus from './piraeus.webp';
+import pyramids from './pyramids.webp';
+import sphinx from './sphinx.webp';
+import statueOfZeus from './statueOfZeus.webp';
+import templeOfArtemis from './templeOfArtemis.webp';
 
 export default {
   appianWay,
