@@ -8,10 +8,10 @@ import {
 
 import './progress.css';
 
-import Agriculture from '/src/assets/progress-tokens/agriculture.png';
-import Mathematics from '/src/assets/progress-tokens/mathematics.png';
-import Mysticism from '/src/assets/progress-tokens/mysticism.png';
-import Philosophy from '/src/assets/progress-tokens/philosophy.png';
+import Agriculture from '/src/assets/progress-tokens/agriculture.webp';
+import Mathematics from '/src/assets/progress-tokens/mathematics.webp';
+import Mysticism from '/src/assets/progress-tokens/mysticism.webp';
+import Philosophy from '/src/assets/progress-tokens/philosophy.webp';
 
 function Progress() {
   const {
