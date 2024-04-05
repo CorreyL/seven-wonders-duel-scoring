@@ -5,6 +5,7 @@ import {
   ActivatedExpansionsContext,
   PlayerScoringContext,
 } from '../../../context';
+import CursorAgnosticInput from '../CursorAgnosticInput';
 
 import './progress.css';
 
@@ -102,11 +103,10 @@ function Progress() {
                      */
                     `${progressTokenNumericMultiplier[progressKey as keyof typeof progressTokenNumericMultiplier]} x `
                   }
-                  <input
+                  <CursorAgnosticInput
                     className="progress-input"
                     onChange={(e) => changeNumericScore(progressKey, Number(e.target.value))}
-                    value={playerScore.progress[progressKey] as number}
-                    inputMode="numeric"
+                    score={playerScore.progress[progressKey] as number}
                   />
                 </div>
               )
