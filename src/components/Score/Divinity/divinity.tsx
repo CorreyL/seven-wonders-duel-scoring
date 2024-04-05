@@ -3,8 +3,8 @@ import {
 } from 'react';
 import { PlayerScoringContext } from '../../../context/Scoring';
 
-import Aphrodite from '/src/assets/pantheon-divinity/aphrodite.png';
-import Astarte from '/src/assets/pantheon-divinity/astarte.png';
+import Aphrodite from '/src/assets/pantheon-divinity/aphrodite.webp';
+import Astarte from '/src/assets/pantheon-divinity/astarte.webp';
 
 import './divinity.css';
 
