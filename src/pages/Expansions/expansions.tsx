@@ -4,9 +4,9 @@ import {
 
 import { ActivatedExpansionsContext } from '../../context';
 
-import Agora from '/src/assets/boxart/agora.png';
-import Base from '/src/assets/boxart/base.png';
-import Pantheon from '/src/assets/boxart/pantheon.png';
+import Agora from '/src/assets/boxart/agora.webp';
+import Base from '/src/assets/boxart/base.webp';
+import Pantheon from '/src/assets/boxart/pantheon.webp';
 import PlusSymbol from '/src/assets/plus-symbol.webp';
 
 import './expansions.css';
