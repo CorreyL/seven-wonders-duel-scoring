@@ -1,7 +1,7 @@
 import {
   useContext,
-  useState,
 } from 'react';
+import CursorAgnosticInput from '../CursorAgnosticInput';
 import { PlayerScoringContext } from '../../../context/Scoring';
 
 import './guildBase.css';
@@ -15,8 +15,6 @@ import shipownersIcon from '/src/assets/guild-card-icons/shipowners-guild.webp';
 import tacticiansIcon from '/src/assets/guild-card-icons/tacticians-guild.webp';
 
 function GuildBase() {
-  const [ firstInput, setFirstInput ] = useState(true);
-
   const {
     currentPlayer,
     playerScore,
@@ -68,41 +66,12 @@ function GuildBase() {
               alt={`${guildKey}-guild-icon`}
             />
             {
-              /**
-               * @todo A similar input is needed in the Progress component
-               *
-               * Spin this out into its own component, and use it in both
-               * components
-               */
-            }
-            {
               guildKey === 'builders'
               && '2x'
             }
-            <input
-              inputMode="numeric"
-              onFocus={() => {
-                setFirstInput(true);
-              }}
-              onChange={(e) => {
-                // @ts-expect-error e.nativeEvent does in-fact have a data key
-                const keyPressed = e.nativeEvent.data;
-                if (isNaN(Number(keyPressed))) {
-                  return;
-                }
-                // Doing a truthy check on keyPressed because backspace results
-                // in keyPressed being assigned to null, which will ultimately
-                // make the score a NaN if not checked
-                if (firstInput && keyPressed) {
-                  e.target.value = String(keyPressed);
-                  setFirstInput(false);
-                }
-                changeScore(guildKey, Number(e.target.value));
-              }}
-              onBlur={() => {
-                setFirstInput(true);
-              }}
-              value={guildScore[guildKey]}
+            <CursorAgnosticInput
+              onChange={(e) => changeScore(guildKey, Number(e.target.value))}
+              score={guildScore[guildKey]}
             />
           </div>
         ))
