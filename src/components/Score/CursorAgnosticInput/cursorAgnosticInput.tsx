@@ -29,6 +29,7 @@ function CursorAgnosticInput({
       onBlur={() => {
         setFirstInput(true);
       }}
+      value={score}
     />
   );
 }
