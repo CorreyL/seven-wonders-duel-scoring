@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { PlayerScoringContext } from '../../../context/Scoring';
 
-import oneCoin from '/src/assets/one-coin.png';
-import threeCoin from '/src/assets/three-coin.png';
-import sixCoin from '/src/assets/six-coin.png';
+import oneCoin from '/src/assets/one-coin.webp';
+import threeCoin from '/src/assets/three-coin.webp';
+import sixCoin from '/src/assets/six-coin.webp';
 import './coins.css';
 
 function Coins() {

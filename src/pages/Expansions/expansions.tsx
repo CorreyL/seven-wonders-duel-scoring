@@ -7,7 +7,7 @@ import { ActivatedExpansionsContext } from '../../context';
 import Agora from '/src/assets/boxart/agora.png';
 import Base from '/src/assets/boxart/base.png';
 import Pantheon from '/src/assets/boxart/pantheon.png';
-import PlusSymbol from '/src/assets/plus-symbol.png';
+import PlusSymbol from '/src/assets/plus-symbol.webp';
 
 import './expansions.css';
 
