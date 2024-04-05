@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 interface CursorAgnosticInputProps {
+  className?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   score: number;
 }
@@ -15,6 +16,7 @@ interface CursorAgnosticInputProps {
  * first input
  */
 function CursorAgnosticInput({
+  className,
   onChange,
   score,
 }: CursorAgnosticInputProps) {
@@ -22,6 +24,7 @@ function CursorAgnosticInput({
 
   return (
     <input
+      className={className}
       inputMode="numeric"
       onFocus={() => {
         setFirstInput(true);
