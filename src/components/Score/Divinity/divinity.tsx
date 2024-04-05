@@ -1,6 +1,7 @@
 import {
   useContext,
 } from 'react';
+import CursorAgnosticInput from '../CursorAgnosticInput';
 import { PlayerScoringContext } from '../../../context/Scoring';
 
 import Aphrodite from '/src/assets/pantheon-divinity/aphrodite.webp';
@@ -54,11 +55,10 @@ function Divinity() {
       </div>
       <div className="divinity-selection">
         <img src={Astarte}/>
-        <input
+        <CursorAgnosticInput
           className="divinity-input"
           onChange={(e) => changeAstarteScore(Number(e.target.value))}
-          value={playerScore.divinity.astarte}
-          inputMode="numeric"
+          score={playerScore.divinity.astarte}
         />
       </div>
     </div>
