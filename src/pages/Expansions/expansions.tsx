@@ -39,8 +39,8 @@ function Expansion() {
       </div>
       <img className="base-game-image" src={Base}/>
       <img src={PlusSymbol}/>
-      <div className="expansions">
-        <div className="select-expansion-container">
+      <div className="flex flex-row">
+        <div className="select-expansion-container flex-1 w-64">
           {
             /**
              * @todo If Wonders or Scoring has been started, reset all
@@ -51,7 +51,6 @@ function Expansion() {
              */
           }
           <img
-            className="expansion-image"
             onClick={() => {setActiveExpansions((prevActiveExpansions) => ({
               ...prevActiveExpansions,
               pantheon: !prevActiveExpansions.pantheon,
@@ -63,7 +62,9 @@ function Expansion() {
             && <div className="overlay"></div>
           }
         </div>
-        <img className="expansion-image disabled-expansion" src={Agora}/>
+        <div className="select-expansion-container flex-1">
+          <img className="disabled-expansion flex-1" src={Agora}/>
+        </div>
       </div>
     </div>
   );
