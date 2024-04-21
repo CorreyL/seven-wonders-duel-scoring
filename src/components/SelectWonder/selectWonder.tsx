@@ -18,10 +18,9 @@ function SelectWonder({
   wonderSet,
 }: SelectWonderProps) {
   return (
-    <div className="select-wonder-container">
+    <div className="select-wonder-container w-5/12">
       <img
         src={wonderImage}
-        className="select-wonder-image"
         alt={`${wonderKey}-wonder`}
         onClick={() => {
           selectWonder(wonderKey);
