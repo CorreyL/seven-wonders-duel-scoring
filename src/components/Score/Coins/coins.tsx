@@ -43,7 +43,7 @@ function Coins() {
           ` / 3`
         }
       </div>
-      <div className="coin-buttons">
+      <div className="flex flex-row flex-wrap justify-center items-center">
         <img
           onClick={() => changeScore(1, true)}
           src={oneCoin}
