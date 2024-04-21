@@ -36,7 +36,8 @@ function Commercial() {
 
   return (
     <div className="commercial">
-      <div className="total-commercial-points">
+      <div className="p-6 flex flex-wrap flex-row items-center gap-4 justify-flex-start min-h-24 bg-zinc-800">
+        <span className="absolute m-auto left-0 right-0 opacity-50">Built Commercial Structures</span>
         {
           Object.keys(commercialScore).map((score) => (
             commercialScore[Number(score)] > 0
@@ -45,7 +46,7 @@ function Commercial() {
                 <button
                   key={`commercial-remove-btn-${score}-${idx}`}
                   onClick={() => removeCommercialCard(Number(score))}
-                  className="commercial-btn"
+                  className="commercial-btn z-10"
                 >
                   {score}
                 </button>
@@ -54,7 +55,7 @@ function Commercial() {
           ))
         }
       </div>
-      <div className="add-commercial-points">
+      <div className="add-commercial-points mt-4">
         {
           Object.keys(commercialScore).map((score, idx) => (
             <button

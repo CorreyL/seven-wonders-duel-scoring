@@ -36,7 +36,8 @@ function Science() {
 
   return (
     <div className="science">
-      <div className="total-science-points">
+      <div className="p-6 flex flex-wrap flex-row items-center gap-4 justify-flex-start min-h-24 bg-zinc-800">
+        <span className="absolute m-auto left-0 right-0 opacity-50">Built Science Structures</span>
         {
           Object.keys(scienceScore).map((score) => (
             scienceScore[Number(score)] > 0
@@ -45,7 +46,7 @@ function Science() {
                 <button
                   key={`science-remove-btn-${score}-${idx}`}
                   onClick={() => removeScienceCard(Number(score))}
-                  className="science-btn"
+                  className="science-btn z-10"
                 >
                   {score}
                 </button>
@@ -54,7 +55,7 @@ function Science() {
           ))
         }
       </div>
-      <div className="add-science-points">
+      <div className="add-science-points mt-4">
         {
           Object.keys(scienceScore).map((score, idx) => (
             <button
