@@ -69,6 +69,7 @@ const calculateWonderTotal = (wonders: Set<WonderKeys>): number => {
     mausoleum: 2,
     piraeus: 2,
     pyramids: 9,
+    sanctuary: 0,
     sphinx: 6,
     statueOfZeus: 3,
     templeOfArtemis: 0,
