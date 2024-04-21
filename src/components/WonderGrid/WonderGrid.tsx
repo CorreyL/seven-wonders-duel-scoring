@@ -21,7 +21,7 @@ function WonderGrid({
   } = useContext(ActivatedExpansionsContext);
 
   return (
-    <div className="wonder-grid">
+    <div className="flex flex-row flex-wrap">
       {
         Array.from(wondersToRender.values()).map((wonderKey, idx) => {
           if (
