@@ -143,6 +143,7 @@ function App() {
             && playerOwnedWonders[currentPlayer].size < 4
           )
         }
+        className="disabled:opacity-50"
         onClick={() => {changePage(1)}}
       >
         Next Page
