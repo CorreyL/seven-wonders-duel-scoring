@@ -60,7 +60,7 @@ function Results({ playerScores }: ResultsProps) {
     <div
       className="results-table"
     >
-      <table>
+      <table className="border-separate">
         <thead>
           <tr>
             <td></td>
