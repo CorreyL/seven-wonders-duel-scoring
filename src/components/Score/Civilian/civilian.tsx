@@ -37,6 +37,7 @@ function Civilian() {
   return (
     <div className="civilian">
       <div className="p-6 flex flex-wrap flex-row items-center gap-4 justify-flex-start min-h-16 bg-zinc-800">
+        <span className="absolute m-auto left-0 right-0 opacity-50">Built Civilian Structures</span>
         {
           Object.keys(civilianScore).map((score) => (
             civilianScore[Number(score)] > 0
@@ -45,7 +46,7 @@ function Civilian() {
                 <button
                   key={`civilian-remove-btn-${score}-${idx}`}
                   onClick={() => removeCivilianCard(Number(score))}
-                  className="civilian-btn h-12"
+                  className="civilian-btn h-12 z-10"
                 >
                   {score}
                 </button>
