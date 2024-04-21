@@ -36,7 +36,7 @@ function Civilian() {
 
   return (
     <div className="civilian">
-      <div className="p-6 flex flex-wrap flex-row items-center gap-4 justify-flex-start min-h-16">
+      <div className="p-6 flex flex-wrap flex-row items-center gap-4 justify-flex-start min-h-16 bg-zinc-800">
         {
           Object.keys(civilianScore).map((score) => (
             civilianScore[Number(score)] > 0
