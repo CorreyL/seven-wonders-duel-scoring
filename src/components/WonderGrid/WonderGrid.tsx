@@ -25,7 +25,10 @@ function WonderGrid({
       {
         Array.from(wondersToRender.values()).map((wonderKey, idx) => {
           if (
-            wonderKey === 'divineTheater' as WonderKeys
+            (
+              wonderKey === 'divineTheater' as WonderKeys
+              || wonderKey === 'sanctuary' as WonderKeys
+            )
             && !activeExpansions.pantheon
           ) {
             return null;
