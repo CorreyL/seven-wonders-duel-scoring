@@ -54,7 +54,7 @@ function Civilian() {
           ))
         }
       </div>
-      <div className="add-civilian-points">
+      <div className="add-civilian-points mt-4">
         {
           Object.keys(civilianScore).map((score, idx) => (
             <button
