@@ -18,7 +18,7 @@ function SelectWonder({
   wonderSet,
 }: SelectWonderProps) {
   return (
-    <div className="select-wonder-container w-1/2">
+    <div className="select-wonder-container w-5/12">
       <img
         src={wonderImage}
         alt={`${wonderKey}-wonder`}
