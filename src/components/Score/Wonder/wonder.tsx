@@ -37,7 +37,7 @@ function Wonder() {
          * @todo Prevent user from switching to the Scoring page until they've
          * selected 4 wonders for the current player
          */
-        ownedWonders.size !== 4
+        ownedWonders.size < 4
         && (
           <div>
             ⚠️ Please go back to the previous page and select the 4 wonders
