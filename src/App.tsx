@@ -44,6 +44,7 @@ const ScoringFactory = (): Scoring => ({
   divinity: {
     aphrodite: false,
     astarte: 0,
+    ra: false,
   },
   grandTemple: 0,
   guildBase: {
