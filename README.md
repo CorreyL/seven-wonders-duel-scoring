@@ -32,7 +32,9 @@ The main improvements I was looking to make were:
 * Add relevant visualizations & graphics from the board game to help the user more easily understand the category
 they're scoring
 
-<img src="readme-assets/wonder-selection.png" width="300">
-<img src="readme-assets/scoring01.png" width="300">
-<img src="readme-assets/scoring02.png" width="300">
-<img src="readme-assets/scoring03.png" width="400">
+<p float="left">
+  <img src="readme-assets/wonder-selection.png" width="300">
+  <img src="readme-assets/scoring01.png" width="300">
+  <img src="readme-assets/scoring02.png" width="300">
+  <img src="readme-assets/scoring03.png" width="400">
+</p>
