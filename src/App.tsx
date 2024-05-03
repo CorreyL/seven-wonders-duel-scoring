@@ -95,10 +95,12 @@ function App() {
     setCurrentPlayer(currentPlayer === Player.One ? Player.Two : Player.One);
   };
 
+  const maxWonders = (activeExpansions.pantheon && playerScores[currentPlayer].divinity.ra) ? 5 : 4;
+
   useEffect(() => {
     if (
       appPage !== AppPages.ExpansionSelection
-      && playerOwnedWonders[currentPlayer].size < 4
+      && playerOwnedWonders[currentPlayer].size < maxWonders
     ) {
       /**
        * @todo Add a modal indicating why the page automatically went
@@ -106,7 +108,7 @@ function App() {
        */
       setAppPage(AppPages.WonderSelection);
     }
-  }, [appPage, currentPlayer, playerOwnedWonders]);
+  }, [appPage, currentPlayer, playerOwnedWonders, maxWonders]);
 
   const getCurrentPlayerContext = (): ScoringContext => {
     return ({
@@ -123,8 +125,6 @@ function App() {
       setOwnedWonders: setPlayerOwnedWonders,
     });
   };
-
-  const maxWonders = (activeExpansions.pantheon && playerScores[currentPlayer].divinity.ra) ? 5 : 4;
 
   const changePageComponent = (): JSX.Element => (
     <div
