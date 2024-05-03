@@ -124,6 +124,8 @@ function App() {
     });
   };
 
+  const maxWonders = (activeExpansions.pantheon && playerScores[currentPlayer].divinity.ra) ? 5 : 4;
+
   const changePageComponent = (): JSX.Element => (
     <div
       className="page-change"
@@ -141,7 +143,7 @@ function App() {
             // If the player hasn't selected 4 wonders, they cannot progress
             // to the Scoring page
             appPage === AppPages.WonderSelection
-            && playerOwnedWonders[currentPlayer].size < 4
+            && playerOwnedWonders[currentPlayer].size < maxWonders
           )
         }
         className="disabled:opacity-50"
