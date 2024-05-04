@@ -36,5 +36,5 @@ they're scoring
   <img src="readme-assets/wonder-selection.png" width="300">
   <img src="readme-assets/scoring01.png" width="300">
   <img src="readme-assets/scoring02.png" width="300">
-  <img src="readme-assets/scoring03.png" width="400">
+  <img src="readme-assets/scoring03.png" width="300">
 </p>
