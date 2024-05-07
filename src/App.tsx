@@ -72,7 +72,7 @@ const ScoringFactory = (): Scoring => ({
 });
 
 function App() {
-  const [ appPage, setAppPage ] = useState<number>(AppPages.ExpansionSelection);
+  const [ appPage, setAppPage ] = useState<AppPages>(AppPages.ExpansionSelection);
   const [ activeExpansions, setActiveExpansions ] = useState<ActiveExpansions>({
     agora: false,
     pantheon: false,
