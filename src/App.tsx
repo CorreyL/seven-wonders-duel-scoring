@@ -25,9 +25,9 @@ import {
 import {
   Expansions,
   OwnedWonders,
+  Results,
   Scoring as ScoringPage,
 } from './pages';
-import Results from './pages/Results';
 
 const ScoringFactory = (): Scoring => ({
   civilian: {
