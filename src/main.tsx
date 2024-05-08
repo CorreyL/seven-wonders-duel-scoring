@@ -1,10 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import ScoreApp from './ScoreApp.tsx'
 import './index.css'
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ScoreApp />,
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ScoreApp />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
