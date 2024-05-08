@@ -2,7 +2,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-import './App.css'
+import './ScoreApp.css'
 
 import {
   ActiveExpansions,
@@ -25,9 +25,9 @@ import {
 import {
   Expansions,
   OwnedWonders,
+  Results,
   Scoring as ScoringPage,
 } from './pages';
-import Results from './pages/Results';
 
 const ScoringFactory = (): Scoring => ({
   civilian: {
@@ -71,8 +71,8 @@ const ScoringFactory = (): Scoring => ({
   wonders: new Set<WonderKeys>,
 });
 
-function App() {
-  const [ appPage, setAppPage ] = useState<number>(AppPages.ExpansionSelection);
+function ScoreApp() {
+  const [ appPage, setAppPage ] = useState<AppPages>(AppPages.ExpansionSelection);
   const [ activeExpansions, setActiveExpansions ] = useState<ActiveExpansions>({
     agora: false,
     pantheon: false,
@@ -207,4 +207,4 @@ function App() {
   );
 }
 
-export default App
+export default ScoreApp
