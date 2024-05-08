@@ -132,6 +132,7 @@ function ScoreApp() {
     >
       <button
         disabled={appPage === AppPages.ExpansionSelection}
+        className="disabled:opacity-50"
         onClick={() => {changePage(-1)}}
       >
         Previous Page
