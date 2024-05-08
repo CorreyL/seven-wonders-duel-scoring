@@ -1,15 +1,3 @@
-:root {
-  --maximum-width: 40em;
-}
-
-
-#root {
-  max-width: var(--maximum-width);
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .page-change {
   display: flex;
   flex-flow: row nowrap;
