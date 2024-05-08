@@ -71,7 +71,7 @@ const ScoringFactory = (): Scoring => ({
   wonders: new Set<WonderKeys>,
 });
 
-function App() {
+function ScoreApp() {
   const [ appPage, setAppPage ] = useState<AppPages>(AppPages.ExpansionSelection);
   const [ activeExpansions, setActiveExpansions ] = useState<ActiveExpansions>({
     agora: false,
@@ -207,4 +207,4 @@ function App() {
   );
 }
 
-export default App
+export default ScoreApp
